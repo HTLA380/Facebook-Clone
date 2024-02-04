@@ -20,6 +20,7 @@ const HomePage = async () => {
             src="/assets/facebook-logo.svg"
             alt="facebook"
             className="mx-auto -mb-3 w-72 lg:w-80 md:-ml-8"
+            priority={false}
           />
           <h1 className="max-w-[28rem] text-[1.5rem] lg:text-2xl leading-8 text-center md:text-start">
             Facebook helps you connect and share with the people in your life.

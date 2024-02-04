@@ -4,15 +4,18 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import DisplayError from "./DisplayError";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [error, setError] = useState("");
   const router = useRouter();
 
   const loginUser = async (e) => {
     e.preventDefault();
+
+    if (!email || !password) return;
 
     try {
       const res = await signIn("credentials", {
@@ -22,7 +25,7 @@ const LoginForm = () => {
       });
 
       if (res.error) {
-        console.log("Invalid Credentials");
+        setError("Invalid email or password");
         return;
       }
       router.replace("feed");
@@ -37,7 +40,9 @@ const LoginForm = () => {
         Log In
       </h2>
       <form onSubmit={loginUser} className="flex flex-col gap-3">
+        <DisplayError error={error} setError={setError} time={3000} />
         <input
+          required
           type="text"
           placeholder="Email address..."
           className="login_input"
@@ -45,6 +50,7 @@ const LoginForm = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
+          required
           type="text"
           placeholder="Password"
           className="login_input"

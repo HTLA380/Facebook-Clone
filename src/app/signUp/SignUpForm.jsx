@@ -3,11 +3,13 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import DisplayError from "@/components/DisplayError";
 
 const SignUpForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const router = useRouter();
 
   const registerUser = async (e) => {
@@ -16,6 +18,21 @@ const SignUpForm = () => {
     if (!name || !email || !password) return;
 
     try {
+      const resUserExists = await fetch("api/userExists", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const { user } = await resUserExists.json();
+
+      if (user) {
+        setError("User already exists");
+        return;
+      }
+
       const res = await fetch("api/register", {
         method: "POST",
         headers: {
@@ -30,7 +47,8 @@ const SignUpForm = () => {
         router.push("/");
       }
     } catch (error) {
-      console.log("Error During Registration", error);
+      setError("Error During Registration");
+      console.log(error);
     }
   };
 
@@ -42,7 +60,9 @@ const SignUpForm = () => {
       <p className="text-gray-600 ">It's quick and easy</p>
       <div className="w-full h-px my-5 bg-gray-300" />
       <form onSubmit={registerUser} className="flex flex-col gap-3">
+        <DisplayError error={error} setError={setError} />
         <input
+          required={true}
           type="text"
           placeholder="Full Name..."
           className="login_input"
@@ -50,6 +70,7 @@ const SignUpForm = () => {
           onChange={(e) => setName(e.target.value)}
         />
         <input
+          required={true}
           type="email"
           placeholder="Email address..."
           className="login_input"
@@ -57,7 +78,8 @@ const SignUpForm = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
-          type="text"
+          required={true}
+          type="password"
           placeholder="Password"
           className="login_input"
           value={password}

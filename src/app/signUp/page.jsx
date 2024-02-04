@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import SignUpForm from "./SignUpForm";
+import SignUpForm from "./signUpform";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
@@ -19,6 +19,7 @@ const SignUp = async () => {
           src="/assets/facebook-logo.svg"
           alt="facebook"
           className="absolute w-52 lg:w-60 top-5 left-10"
+          priority={false}
         />
       </Link>
       <SignUpForm />
