@@ -51,7 +51,7 @@ const LoginForm = () => {
         />
         <input
           required
-          type="text"
+          type="password"
           placeholder="Password"
           className="login_input"
           value={password}
