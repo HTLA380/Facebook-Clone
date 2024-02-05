@@ -21,7 +21,7 @@ const Navbar = () => {
 
   if (status !== "authenticated") return;
   return (
-    <header className="p-2">
+    <header className="fixed top-0 left-0 z-[999] w-full bg-white p-2">
       <nav className="flex items-center justify-between gap-5 h-14">
         {/* left */}
         <div className="flex items-center w-40 h-full gap-3 bg-gray-200">
