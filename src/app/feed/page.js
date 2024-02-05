@@ -7,7 +7,6 @@ import Navbar from "@/components/Navbar";
 const Feed = () => {
   return (
     <div>
-      <Navbar />
       <button onClick={() => signOut()}>SignOut</button>
     </div>
   );

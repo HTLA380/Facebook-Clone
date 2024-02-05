@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   FaBell,
@@ -13,8 +14,12 @@ import {
 import { IoPeopleCircleOutline } from "react-icons/io5";
 import { IoIosMenu } from "react-icons/io";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 const Navbar = () => {
+  const { data: session, status } = useSession();
+
+  if (status !== "authenticated") return;
   return (
     <header className="p-2">
       <nav className="flex items-center justify-between gap-5 h-14">
