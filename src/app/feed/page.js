@@ -5,6 +5,7 @@ import { signOut } from "next-auth/react";
 import LeftBar from "./(leftBar)/LeftBar";
 import RightBar from "./(rightBar)/RightBar";
 import MyDay from "./(myDay)/MyDay";
+import CreatePost from "./(createPost)/CreatePost";
 
 const Feed = () => {
   return (
@@ -14,6 +15,7 @@ const Feed = () => {
       {/* main content */}
       <main className="w-full h-full max-w-[680px] min-h-screen bg-red-300 pt-24">
         <MyDay />
+        <CreatePost />
       </main>
       {/* right bar */}
       <RightBar />
