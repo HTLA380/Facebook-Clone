@@ -1,30 +1,23 @@
 "use client";
 import React from "react";
-import {
-  FaBell,
-  FaFacebook,
-  FaFacebookMessenger,
-  FaHome,
-  FaPlus,
-  FaUser,
-  FaUserFriends,
-  FaVideo,
-} from "react-icons/fa";
-import { IoPeopleCircleOutline } from "react-icons/io5";
-import { IoIosMenu } from "react-icons/io";
+
 import Link from "next/link";
 import { useSession } from "next-auth/react";
-import { buttonVariants } from "./ui/button";
 import { usePathname } from "next/navigation";
-import { Input } from "./ui/input";
-import { FiSearch } from "react-icons/fi";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@radix-ui/react-popover";
-import { BsFillGrid3X3GapFill } from "react-icons/bs";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
+import { FaFacebook, FaHome, FaUserFriends, FaVideo } from "react-icons/fa";
+import { IoPeopleCircleOutline } from "react-icons/io5";
+import { IoIosMenu } from "react-icons/io";
+
+import SearchBar from "./search/SearchBar";
+import MenuPopover from "./menu/MenuPopover";
+import MessengerPopover from "./messenger/MessengerPopover";
+import NotificationsPopover from "./notifications/NotificationsPopover";
+import AccountPopover from "./account/AccountPopover";
+
+import { buttonVariants } from "../ui/button";
+
+// ==================================================
 
 const Navbar = () => {
   const { data: session, status } = useSession();
@@ -35,18 +28,16 @@ const Navbar = () => {
   return (
     <header className="fixed inset-x-0 z-20 w-full px-4 py-2 bg-primary-foreground">
       <nav className="flex items-center justify-between gap-5">
-        {/* left */}
+        {/* ================================================== */}
         <div className="flex items-center h-full gap-3 w-full max-w-[360px]">
           <Link href={"/feed"}>
             <FaFacebook size={45} className="text-primary" />
           </Link>
 
-          <div className="relative flex items-center ">
-            <FiSearch className="absolute w-4 h-4 transform -translate-y-1/2 left-2 top-1/2 text-muted-foreground" />
-            <Input placeholder="Your search..." className="pl-8 " />
-          </div>
+          <SearchBar />
         </div>
-        {/* middle */}
+
+        {/* ================================================== */}
         <div className="flex items-center justify-center flex-grow h-full max-w-[680px] gap-2 ">
           {NAV_LINK_OPTIONS.map((eachOption) => {
             const isActive = eachOption.destination === location;
@@ -65,36 +56,16 @@ const Navbar = () => {
             );
           })}
         </div>
-        {/* right */}
-        <div className="flex items-center justify-end h-full gap-2 w-full max-w-[360px]">
-          <Popover>
-            <PopoverTrigger className="p-3 text-xl rounded-full bg-accent">
-              <BsFillGrid3X3GapFill />
-            </PopoverTrigger>
-            <PopoverContent>Place content for the popover here.</PopoverContent>
-          </Popover>
-          <Popover>
-            <PopoverTrigger className="p-3 text-xl rounded-full bg-accent">
-              <FaFacebookMessenger />
-            </PopoverTrigger>
-            <PopoverContent>Place content for the popover here.</PopoverContent>
-          </Popover>
-          <Popover>
-            <PopoverTrigger className="p-3 text-xl rounded-full bg-accent">
-              <FaBell />
-            </PopoverTrigger>
-            <PopoverContent>Place content for the popover here.</PopoverContent>
-          </Popover>
 
-          <Popover>
-            <PopoverTrigger>
-              <Avatar>
-                <AvatarImage src="https://github.com/shadcn.png" />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-            </PopoverTrigger>
-            <PopoverContent>Place content for the popover here.</PopoverContent>
-          </Popover>
+        {/* ================================================== */}
+        <div className="flex items-center justify-end h-full gap-2 w-full max-w-[360px]">
+          <MenuPopover />
+
+          <MessengerPopover />
+
+          <NotificationsPopover />
+
+          <AccountPopover />
         </div>
       </nav>
     </header>
