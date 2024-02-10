@@ -13,7 +13,7 @@ import { IoPeopleCircleOutline } from "react-icons/io5";
 
 const LeftBar = () => {
   return (
-    <div className="fixed left-0 w-full h-full px-2 pb-32 overflow-scroll bg-gray-300 top-20 max-w-96">
+    <div className="fixed left-0 w-full h-full px-2 pb-32 overflow-scroll bg-gray-300 top-20 max-w-[360px]">
       <div>
         <RenderLinkButton
           icon={<FaUser />}
