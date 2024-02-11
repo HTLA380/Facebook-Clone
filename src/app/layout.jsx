@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "./Providers";
 import Navbar from "@/components/navbar/Navbar";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +16,10 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <AuthProvider>
         <body className={inter.className}>
-          <Navbar />
-          {children}
+          <TooltipProvider delayDuration={200}>
+            <Navbar />
+            {children}
+          </TooltipProvider>
         </body>
       </AuthProvider>
     </html>
