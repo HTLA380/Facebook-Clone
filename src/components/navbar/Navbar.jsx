@@ -16,15 +16,21 @@ import NotificationsPopover from "./notifications/NotificationsPopover";
 import AccountPopover from "./account/AccountPopover";
 
 import { buttonVariants } from "../ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "../ui/tooltip";
+import DisplayTooltip from "../DisplayTooltip";
 
 // ==================================================
 
 const Navbar = () => {
   const { data: session, status } = useSession();
-
-  if (status !== "authenticated") return;
   const location = usePathname();
 
+  if (status !== "authenticated") return;
   return (
     <header className="fixed inset-x-0 z-20 w-full px-4 py-2 bg-primary-foreground">
       <nav className="flex items-center justify-between gap-5">
@@ -50,7 +56,8 @@ const Navbar = () => {
                 className={`relative w-full py-6 ${
                   isActive ? activeColor : normalColor
                 }`}
-                destination={eachOption.destination}>
+                destination={eachOption.destination}
+                name={eachOption.name}>
                 {eachOption.icon}
               </RenderNavLink>
             );
@@ -72,21 +79,23 @@ const Navbar = () => {
   );
 };
 
-const RenderNavLink = ({ destination, children, className }) => {
+const RenderNavLink = ({ destination, children, className, name }) => {
   return (
-    <Link
-      className={buttonVariants({
-        variant: "ghost",
-        className: className,
-      })}
-      href={destination}>
-      {children}
-    </Link>
+    <DisplayTooltip tooltipName={name}>
+      <Link
+        className={buttonVariants({
+          variant: "ghost",
+          className: className,
+        })}
+        href={destination}>
+        {children}
+      </Link>
+    </DisplayTooltip>
   );
 };
 
 const NAV_LINK_OPTIONS = [
-  { name: "feed", destination: "/feed", icon: <FaHome size={25} /> },
+  { name: "home", destination: "/feed", icon: <FaHome size={25} /> },
 
   {
     name: "friends",

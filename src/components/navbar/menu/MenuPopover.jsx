@@ -1,3 +1,6 @@
+import DisplayTooltip from "@/components/DisplayTooltip";
+import { Button } from "@/components/ui/button";
+
 import {
   Popover,
   PopoverContent,
@@ -9,10 +12,16 @@ import { BsFillGrid3X3GapFill } from "react-icons/bs";
 const MenuPopover = () => {
   return (
     <Popover>
-      <PopoverTrigger className="p-3 text-xl rounded-full bg-accent">
-        <BsFillGrid3X3GapFill />
-      </PopoverTrigger>
-      <PopoverContent>Place content for the popover here.</PopoverContent>
+      <DisplayTooltip tooltipName="Menu">
+        <PopoverTrigger asChild>
+          <Button
+            variant={"accent"}
+            className={"text-xl p-0 w-10 h-10 rounded-full"}>
+            <BsFillGrid3X3GapFill />
+          </Button>
+        </PopoverTrigger>
+      </DisplayTooltip>
+      <PopoverContent className="z-50">....</PopoverContent>
     </Popover>
   );
 };

@@ -1,3 +1,5 @@
+import DisplayTooltip from "@/components/DisplayTooltip";
+import { Button } from "@/components/ui/button";
 import {
   Popover,
   PopoverContent,
@@ -9,10 +11,16 @@ import { FaBell } from "react-icons/fa";
 const NotificationsPopover = () => {
   return (
     <Popover>
-      <PopoverTrigger className="p-3 text-xl rounded-full bg-accent">
-        <FaBell />
-      </PopoverTrigger>
-      <PopoverContent>Place content for the popover here.</PopoverContent>
+      <DisplayTooltip tooltipName="Notifications">
+        <PopoverTrigger asChild>
+          <Button
+            variant={"accent"}
+            className={"text-xl p-0 w-10 h-10 rounded-full"}>
+            <FaBell />
+          </Button>
+        </PopoverTrigger>
+      </DisplayTooltip>
+      <PopoverContent className="z-50">....</PopoverContent>
     </Popover>
   );
 };
