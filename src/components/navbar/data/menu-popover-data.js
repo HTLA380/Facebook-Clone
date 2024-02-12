@@ -132,3 +132,38 @@ export const menuPopoverData1 = [
     ],
   },
 ];
+
+export const menuPopoverData2 = [
+  {
+    icon: <FaEdit />,
+    title: "Post",
+  },
+  {
+    icon: <FaBookOpen />,
+    title: "Story",
+  },
+  {
+    icon: <FaClapperboard />,
+    title: "Reel",
+  },
+  {
+    icon: <FaStar />,
+    title: "Life event",
+  },
+  {
+    icon: <RiFlag2Fill />,
+    title: "Page",
+  },
+  {
+    icon: <HiSpeakerphone />,
+    title: "Ad",
+  },
+  {
+    icon: <IoPeopleCircle />,
+    title: "Group",
+  },
+  {
+    icon: <FaBoxArchive />,
+    title: "Event",
+  },
+];
