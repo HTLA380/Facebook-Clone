@@ -1,4 +1,10 @@
-export default menuPopoverData = [
+import { FaBookOpen, FaEdit, FaStar } from "react-icons/fa";
+import { FaBoxArchive, FaClapperboard } from "react-icons/fa6";
+import { RiFlag2Fill } from "react-icons/ri";
+import { HiSpeakerphone } from "react-icons/hi";
+import { IoPeopleCircle } from "react-icons/io5";
+
+export const menuPopoverData1 = [
   {
     group: "Social",
     elements: [
@@ -6,33 +12,33 @@ export default menuPopoverData = [
         title: "Events",
         description:
           "Organize or find events and other things to do online and nearby.",
-        iconUrl: "./public/assets/icons/events-icon",
+        iconUrl: "./assets/icons/events-icon.png",
       },
       {
         title: "Find friends",
         description: "Search for friends or people you my know.",
-        iconUrl: "./public/assets/icons/find-friends-icon",
+        iconUrl: "./assets/icons/find-friends-icon.png",
       },
       {
         title: "Groups",
         description: "Connect with people who share your interests.",
-        iconUrl: "./public/assets/icons/groups-icon",
+        iconUrl: "./assets/icons/groups-icon.png",
       },
       {
         title: "News Feed",
         description: "See relevant posts from people and Pages you follow.",
-        iconUrl: "./public/assets/icons/news-feed-icon",
+        iconUrl: "./assets/icons/news-feed-icon.png",
       },
       {
         title: "Feeds",
         description:
           "See the most recent posts from  your friends, groups, Pages and more.",
-        iconUrl: "./public/assets/icons/feeds-icon",
+        iconUrl: "./assets/icons/feeds-icon.png",
       },
       {
         title: "Pages",
         description: "Discover and connect with business on Facebook.",
-        iconUrl: "./public/assets/icons/pages-icon",
+        iconUrl: "./assets/icons/pages-icon.png",
       },
     ],
   },
@@ -43,18 +49,18 @@ export default menuPopoverData = [
         title: "Gaming Video",
         description:
           "Watch and connect with your favorite games and streamers.",
-        iconUrl: "./public/assets/icons/gaming-video-icon",
+        iconUrl: "./assets/icons/gaming-video-icon.png",
       },
       {
         title: "Play games",
         description: "Play your favorite games.",
-        iconUrl: "./public/assets/icons/play-games-icon",
+        iconUrl: "./assets/icons/play-games-icon.png",
       },
       {
         title: "Video",
         description:
           "A video destination personalized to your interests and connections.",
-        iconUrl: "./public/assets/icons/video-icon",
+        iconUrl: "./assets/icons/video-icon.png",
       },
     ],
   },
@@ -65,7 +71,7 @@ export default menuPopoverData = [
         title: "Orders and payments",
         description:
           "A seamless, secure way to pay on the apps you already use.",
-        iconUrl: "./public/assets/icons/orders-icon",
+        iconUrl: "./assets/icons/orders-icon.png",
       },
     ],
   },
@@ -75,17 +81,17 @@ export default menuPopoverData = [
       {
         title: "Recent ad activity",
         description: "See all the ads you interacted with on Facebook.",
-        iconUrl: "./public/assets/icons/recent-ad-icon",
+        iconUrl: "./assets/icons/recent-ad-icon.png",
       },
       {
         title: "Memories",
         description: "Browse your old photos, videos and posts  on Facebook.",
-        iconUrl: "./public/assets/icons/memories-icon",
+        iconUrl: "./assets/icons/memories-icon.png",
       },
       {
         title: "Saved",
         description: "Find posts, photos and videos that you saved for later.",
-        iconUrl: "./public/assets/icons/saved-icon",
+        iconUrl: "./assets/icons/saved-icon.png",
       },
     ],
   },
@@ -95,7 +101,7 @@ export default menuPopoverData = [
       {
         title: "Ads Manager",
         description: "Create, manage and track the performance of you ads.",
-        iconUrl: "./public/assets/icons/ads-manager-icon",
+        iconUrl: "./assets/icons/ads-manager-icon.png",
       },
     ],
   },
@@ -105,13 +111,13 @@ export default menuPopoverData = [
       {
         title: "Climate Science Center",
         description: "Learn about climate change and its effects.",
-        iconUrl: "./public/assets/icons/climate-icon",
+        iconUrl: "./assets/icons/climate-icon.png",
       },
       {
         title: "Fundraisers",
         description:
           "Donate and raise money for nonprofits and  personal causes",
-        iconUrl: "./public/assets/icons/fundraisers-icon",
+        iconUrl: "./assets/icons/fundraisers-icon.png",
       },
     ],
   },
@@ -121,7 +127,7 @@ export default menuPopoverData = [
       {
         title: "Messenger Kids",
         description: "Let kids message with close friends and family.",
-        iconUrl: "./public/assets/icons/messenger-kids-icon",
+        iconUrl: "./assets/icons/messenger-kids-icon.png",
       },
     ],
   },
