@@ -14,7 +14,7 @@ import { Separator } from "@/components/ui/separator";
 
 const MenuPopover = () => {
   const renderPopoverContent = (
-    <PopoverContent className="w-[37rem] h-[90vh] mr-8 overflow-scroll bg-secondary rounded_scrollbar">
+    <PopoverContent className="w-[37rem] h-[90vh] mr-8 overflow-scroll rounded_scrollbar">
       <h3 className="text-2xl font-bold ">Menu</h3>
 
       <div className="flex items-start gap-4 mt-3">
