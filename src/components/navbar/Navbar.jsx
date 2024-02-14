@@ -2,7 +2,6 @@
 import React from "react";
 
 import Link from "next/link";
-import { useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
 
 import { FaFacebook, FaHome, FaUserFriends, FaVideo } from "react-icons/fa";
@@ -16,27 +15,21 @@ import NotificationsPopover from "./notifications/NotificationsPopover";
 import AccountPopover from "./account/AccountPopover";
 
 import { buttonVariants } from "../ui/button";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "../ui/tooltip";
 import DisplayTooltip from "../DisplayTooltip";
 
 // ==================================================
 
 const Navbar = () => {
-  const { data: session, status } = useSession();
+  // const { data: session, status } = useSession();
   const location = usePathname();
 
-  if (status !== "authenticated") return;
+  // if (status !== "authenticated") return;
   return (
     <header className="fixed inset-x-0 z-20 w-full px-4 py-2 bg-primary-foreground">
       <nav className="flex items-center justify-between gap-5">
         {/* ================================================== */}
         <div className="flex items-center h-full gap-3 w-full max-w-[360px]">
-          <Link href={"/feed"}>
+          <Link href={"/"}>
             <FaFacebook size={45} className="text-primary" />
           </Link>
 
@@ -95,7 +88,7 @@ const RenderNavLink = ({ destination, children, className, name }) => {
 };
 
 const NAV_LINK_OPTIONS = [
-  { name: "home", destination: "/feed", icon: <FaHome size={25} /> },
+  { name: "home", destination: "/", icon: <FaHome size={25} /> },
 
   {
     name: "friends",

@@ -1,21 +1,28 @@
+import React from "react";
+
+import { BsThreeDots } from "react-icons/bs";
+import { FaFacebookMessenger } from "react-icons/fa";
+import { RiDragMove2Line } from "react-icons/ri";
+import { BiSolidEdit } from "react-icons/bi";
+
+import { faker } from "@faker-js/faker";
+import { messengerPopoverData } from "../data/messenger-popover-data";
+
 import DisplayTooltip from "@/components/DisplayTooltip";
+import SearchField from "@/components/SearchField";
+import TooltipButton from "@/components/buttons/TooltipButton";
+
 import { Button } from "@/components/ui/button";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import React from "react";
-import { BsThreeDots } from "react-icons/bs";
-import { FaFacebookMessenger } from "react-icons/fa";
-import { RiDragMove2Line } from "react-icons/ri";
-import { BiSolidEdit } from "react-icons/bi";
-import { faker } from "@faker-js/faker";
-import TooltipButton from "@/components/buttons/TooltipButton";
-import SearchField from "@/components/SearchField";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { messengerPopoverData } from "../data/messenger-popover-data";
+
 import { fToNow } from "@/util/formatDate";
+
+// ==========================================================
 
 const MessengerPopover = () => {
   const renderPopoverContent = (

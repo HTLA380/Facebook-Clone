@@ -20,7 +20,7 @@ const NotificationsPopover = () => {
           </Button>
         </PopoverTrigger>
       </DisplayTooltip>
-      <PopoverContent className="z-50">....</PopoverContent>
+      <PopoverContent>....</PopoverContent>
     </Popover>
   );
 };

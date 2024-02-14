@@ -1,12 +1,11 @@
 "use client";
 
 import React from "react";
-import { signOut } from "next-auth/react";
-import LeftBar from "./(leftBar)/LeftBar";
-import RightBar from "./(rightBar)/RightBar";
-import MyDay from "./(myDay)/MyDay";
-import CreatePost from "./(createPost)/CreatePost";
-import Posts from "./(posts)/Posts";
+import LeftBar from "./leftBar/LeftBar";
+import MyDay from "./myDay/MyDay";
+import CreatePost from "./createPost/CreatePost";
+import Posts from "./posts/Posts";
+import RightBar from "./rightBar/RightBar";
 
 const Feed = () => {
   return (
