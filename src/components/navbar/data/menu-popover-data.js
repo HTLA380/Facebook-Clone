@@ -12,33 +12,33 @@ export const menuPopoverData1 = [
         title: "Events",
         description:
           "Organize or find events and other things to do online and nearby.",
-        iconUrl: "./assets/icons/events-icon.png",
+        iconUrl: "./assets/images/icons/events-icon.png",
       },
       {
         title: "Find friends",
         description: "Search for friends or people you my know.",
-        iconUrl: "./assets/icons/find-friends-icon.png",
+        iconUrl: "./assets/images/icons/find-friends-icon.png",
       },
       {
         title: "Groups",
         description: "Connect with people who share your interests.",
-        iconUrl: "./assets/icons/groups-icon.png",
+        iconUrl: "./assets/images/icons/groups-icon.png",
       },
       {
         title: "News Feed",
         description: "See relevant posts from people and Pages you follow.",
-        iconUrl: "./assets/icons/news-feed-icon.png",
+        iconUrl: "./assets/images/icons/news-feed-icon.png",
       },
       {
         title: "Feeds",
         description:
           "See the most recent posts from  your friends, groups, Pages and more.",
-        iconUrl: "./assets/icons/feeds-icon.png",
+        iconUrl: "./assets/images/icons/feeds-icon.png",
       },
       {
         title: "Pages",
         description: "Discover and connect with business on Facebook.",
-        iconUrl: "./assets/icons/pages-icon.png",
+        iconUrl: "./assets/images/icons/pages-icon.png",
       },
     ],
   },
@@ -49,18 +49,18 @@ export const menuPopoverData1 = [
         title: "Gaming Video",
         description:
           "Watch and connect with your favorite games and streamers.",
-        iconUrl: "./assets/icons/gaming-video-icon.png",
+        iconUrl: "./assets/images/icons/gaming-video-icon.png",
       },
       {
         title: "Play games",
         description: "Play your favorite games.",
-        iconUrl: "./assets/icons/play-games-icon.png",
+        iconUrl: "./assets/images/icons/play-games-icon.png",
       },
       {
         title: "Video",
         description:
           "A video destination personalized to your interests and connections.",
-        iconUrl: "./assets/icons/video-icon.png",
+        iconUrl: "./assets/images/icons/video-icon.png",
       },
     ],
   },
@@ -71,7 +71,7 @@ export const menuPopoverData1 = [
         title: "Orders and payments",
         description:
           "A seamless, secure way to pay on the apps you already use.",
-        iconUrl: "./assets/icons/orders-icon.png",
+        iconUrl: "./assets/images/icons/orders-icon.png",
       },
     ],
   },
@@ -81,17 +81,17 @@ export const menuPopoverData1 = [
       {
         title: "Recent ad activity",
         description: "See all the ads you interacted with on Facebook.",
-        iconUrl: "./assets/icons/recent-ad-icon.png",
+        iconUrl: "./assets/images/icons/recent-ad-icon.png",
       },
       {
         title: "Memories",
         description: "Browse your old photos, videos and posts  on Facebook.",
-        iconUrl: "./assets/icons/memories-icon.png",
+        iconUrl: "./assets/images/icons/memories-icon.png",
       },
       {
         title: "Saved",
         description: "Find posts, photos and videos that you saved for later.",
-        iconUrl: "./assets/icons/saved-icon.png",
+        iconUrl: "./assets/images/icons/saved-icon.png",
       },
     ],
   },
@@ -101,7 +101,7 @@ export const menuPopoverData1 = [
       {
         title: "Ads Manager",
         description: "Create, manage and track the performance of you ads.",
-        iconUrl: "./assets/icons/ads-manager-icon.png",
+        iconUrl: "./assets/images/icons/ads-manager-icon.png",
       },
     ],
   },
@@ -111,13 +111,13 @@ export const menuPopoverData1 = [
       {
         title: "Climate Science Center",
         description: "Learn about climate change and its effects.",
-        iconUrl: "./assets/icons/climate-icon.png",
+        iconUrl: "./assets/images/icons/climate-icon.png",
       },
       {
         title: "Fundraisers",
         description:
           "Donate and raise money for nonprofits and  personal causes",
-        iconUrl: "./assets/icons/fundraisers-icon.png",
+        iconUrl: "./assets/images/icons/fundraisers-icon.png",
       },
     ],
   },
@@ -127,7 +127,7 @@ export const menuPopoverData1 = [
       {
         title: "Messenger Kids",
         description: "Let kids message with close friends and family.",
-        iconUrl: "./assets/icons/messenger-kids-icon.png",
+        iconUrl: "./assets/images/icons/messenger-kids-icon.png",
       },
     ],
   },

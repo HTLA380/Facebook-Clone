@@ -6,32 +6,27 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { useSession } from "next-auth/react";
 import React from "react";
 
 const AccountPopover = () => {
+  const { data: session } = useSession();
+
+  console.log(session);
   return (
     <Popover>
       <DisplayTooltip tooltipName="Account">
         <PopoverTrigger asChild>
           <Button variant={"icon"} className="p-0">
             <Avatar>
-              <AvatarImage src="https://github.com/shadcn.png" />
-              <AvatarFallback>CN</AvatarFallback>
+              <AvatarImage src={session?.user?.image} />
+              <AvatarFallback>{session?.user?.name}</AvatarFallback>
             </Avatar>
           </Button>
         </PopoverTrigger>
       </DisplayTooltip>
       <PopoverContent className="z-50">....</PopoverContent>
     </Popover>
-    // <Popover>
-    //   <PopoverTrigger>
-    //     <Avatar>
-    //       <AvatarImage src="https://github.com/shadcn.png" />
-    //       <AvatarFallback>CN</AvatarFallback>
-    //     </Avatar>
-    //   </PopoverTrigger>
-    //   <PopoverContent>Place content for the popover here.</PopoverContent>
-    // </Popover>
   );
 };
 

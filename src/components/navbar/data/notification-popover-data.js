@@ -40,7 +40,7 @@ const notificationAction = [
 
 export const NotificationPopoverData = [...Array(24)].map((_, index) => ({
   id: faker.string.uuid(),
-  avatarUrl: `./assets/avatars/avatar_${index + 1}.jpg`,
+  avatarUrl: `./assets/images/avatars/avatar_${index + 1}.jpg`,
   userName: faker.person.fullName(),
   notificationAction: sample(notificationAction),
   isUnread: faker.datatype.boolean(),
