@@ -16,14 +16,13 @@ import AccountPopover from "./account/AccountPopover";
 
 import { buttonVariants } from "../ui/button";
 import DisplayTooltip from "../DisplayTooltip";
+import { useSession } from "next-auth/react";
 
 // ==================================================
 
 const Navbar = () => {
-  // const { data: session, status } = useSession();
   const location = usePathname();
 
-  // if (status !== "authenticated") return;
   return (
     <header className="fixed inset-x-0 z-20 w-full px-4 py-2 bg-primary-foreground">
       <nav className="flex items-center justify-between gap-5">
@@ -66,6 +65,8 @@ const Navbar = () => {
           <NotificationsPopover />
 
           <AccountPopover />
+
+          {/* <Button onClick={() => signOut()}>Sign Out</Button> */}
         </div>
       </nav>
     </header>
