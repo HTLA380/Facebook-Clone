@@ -1,46 +1,34 @@
-// import NextAuth from "next-auth/next";
-// import CredentialsProvider from "next-auth/providers/credentials";
-// import bcrypt from "bcrypt";
-// import dbConnect from "@/lib/mongodb";
-// import User from "@/app/(models)/User";
+import NextAuth from "next-auth/next";
+import FacebookProvider from "next-auth/providers/facebook";
 
-// export const authOptions = {
-//   providers: [
-//     CredentialsProvider({
-//       name: "credentials",
-//       credentials: {},
+export const authOptions = {
+  providers: [
+    FacebookProvider({
+      clientId: process.env.FACEBOOK_CLIENT_ID,
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+    }),
+  ],
+  callbacks: {
+    async jwt({ token, account }) {
+      if (account) {
+        token = Object.assign({}, token, {
+          access_token: account.access_token,
+        });
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      if (session) {
+        session = Object.assign({}, session, {
+          access_token: token.access_token,
+        });
+      }
+      return session;
+    },
+  },
+  secret: process.env.AUTH_SECRET,
+};
 
-//       async authorize(credentials) {
-//         const { email, password } = credentials;
+const handler = NextAuth(authOptions);
 
-//         try {
-//           await dbConnect();
-//           const user = await User.findOne({ email });
-
-//           if (!user) {
-//             return null;
-//           }
-
-//           const passwordsMatch = await bcrypt.compare(password, user.password);
-//           if (!passwordsMatch) {
-//             return null;
-//           }
-//           return user;
-//         } catch (error) {
-//           console.log("Error", error);
-//         }
-//       },
-//     }),
-//   ],
-//   session: {
-//     strategy: "jwt",
-//   },
-//   secret: process.env.NEXTAUTH_SECRET,
-//   pages: {
-//     signIn: "/",
-//   },
-// };
-
-// const handler = NextAuth(authOptions);
-
-// export { handler as GET, handler as POST };
+export { handler as GET, handler as POST };
