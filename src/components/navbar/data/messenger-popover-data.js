@@ -8,5 +8,5 @@ export const messengerPopoverData = [...Array(24)].map((_, index) => ({
   isUserLastMessage: faker.datatype.boolean(),
   isSeenLastMessage: faker.datatype.boolean(),
   isOnLine: faker.datatype.boolean(),
-  date: faker.date.past(),
+  date: faker.date.recent(),
 }));
