@@ -9,10 +9,10 @@ import { IoPeopleCircleOutline } from "react-icons/io5";
 import { IoIosMenu } from "react-icons/io";
 
 import SearchBar from "./search/SearchBar";
-import MenuPopover from "./menu/MenuPopover";
-import MessengerPopover from "./messenger/MessengerPopover";
-import NotificationsPopover from "./notifications/NotificationsPopover";
-import AccountPopover from "./account/AccountPopover";
+import MenuPopover from "./menu-popover/MenuPopover";
+import MessengerPopover from "./messenger-popover/MessengerPopover";
+import NotificationsPopover from "./notifications-popover/NotificationsPopover";
+import AccountPopover from "./account-popover/AccountPopover";
 
 import { buttonVariants } from "../ui/button";
 import DisplayTooltip from "../DisplayTooltip";

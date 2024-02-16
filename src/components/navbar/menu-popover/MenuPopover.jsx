@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/popover";
 import React from "react";
 import { BsFillGrid3X3GapFill } from "react-icons/bs";
-import { menuPopoverData1, menuPopoverData2 } from "../data/menu-popover-data";
+import { menuPopoverData1, menuPopoverData2 } from "../_data/menu-popover-data";
 import { Separator } from "@/components/ui/separator";
 
 const MenuPopover = () => {

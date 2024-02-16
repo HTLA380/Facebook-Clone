@@ -9,7 +9,7 @@ import Link from "next/link";
 import React from "react";
 import { BsThreeDots } from "react-icons/bs";
 import { FaBell, FaUser } from "react-icons/fa";
-import { NotificationPopoverData } from "../data/notification-popover-data";
+import { NotificationPopoverData } from "../_data/notification-popover-data";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { fToNow } from "@/util/formatDate";
 

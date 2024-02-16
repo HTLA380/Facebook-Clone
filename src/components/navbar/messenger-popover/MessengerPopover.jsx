@@ -6,7 +6,7 @@ import { RiDragMove2Line } from "react-icons/ri";
 import { BiSolidEdit } from "react-icons/bi";
 
 import { faker } from "@faker-js/faker";
-import { messengerPopoverData } from "../data/messenger-popover-data";
+import { messengerPopoverData } from "../_data/messenger-popover-data";
 
 import DisplayTooltip from "@/components/DisplayTooltip";
 import SearchField from "@/components/SearchField";

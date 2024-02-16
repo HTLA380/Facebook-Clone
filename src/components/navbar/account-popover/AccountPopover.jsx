@@ -14,7 +14,7 @@ import Link from "next/link";
 import React from "react";
 import { GoChevronRight } from "react-icons/go";
 import { IoSettingsSharp } from "react-icons/io5";
-import { accountPopoverData } from "../data/account-popover-data";
+import { accountPopoverData } from "../_data/account-popover-data";
 
 const AccountPopover = () => {
   const { data: session } = useSession();
