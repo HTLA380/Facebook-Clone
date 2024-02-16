@@ -21,6 +21,7 @@ const RightBar = () => {
         {[...Array(15).keys()].map((number) => {
           return (
             <RenderLinkButton
+              key={`htet-aung-lin-${number}`}
               icon={<FaUserCircle />}
               title={`Htet Aung Lin ${number + 1}`}
               destination={`profile/${number}`}
@@ -41,6 +42,7 @@ const RightBar = () => {
 
           return (
             <RenderLinkButton
+              key={`group-${number}`}
               icon={<div className={`w-8 h-8  rounded-md ${bgColor}`} />}
               title={`group ${number + 1}`}
               destination={`/group${number + 1}`}

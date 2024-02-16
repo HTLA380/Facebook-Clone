@@ -41,7 +41,7 @@ const AccountPopover = () => {
 
       {accountPopoverData.map((data) => {
         return (
-          <Button variant="ghost" className="w-full gap-2 py-6">
+          <Button key={data.id} variant="ghost" className="w-full gap-2 py-6">
             <span className="p-1.5 text-2xl rounded-full bg-accent">
               {data.icon}
             </span>
