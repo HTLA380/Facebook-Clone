@@ -11,10 +11,11 @@ import { BsThreeDots } from "react-icons/bs";
 import { FaBell, FaUser } from "react-icons/fa";
 import { NotificationPopoverData } from "../data/notification-popover-data";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { fToNow } from "@/util/formatDate";
 
 const NotificationsPopover = () => {
   const renderPopoverContent = (
-    <PopoverContent className="w-[22.5rem] mr-10 px-2 h-[90vh] overflow-y-scroll">
+    <PopoverContent className="w-[22.5rem] mr-10 px-2 h-[90vh] overflow-y-scroll rounded_scrollbar">
       <div className="flex items-center justify-between px-2">
         <h3 className="text-2xl font-bold ">Notifications</h3>
         <Button
@@ -91,16 +92,16 @@ const NotificationButton = ({ data }) => {
 
         <span
           className={`absolute p-1.5 text-sm rounded-full -right-1.5 -bottom-1.5 text-gray-100 ${iconBgColor}`}>
-          {notificationAction?.icon}
+          {notificationAction.icon}
         </span>
       </div>
 
       <div className="w-[70%] font-normal text-left text-accent-foreground">
         <p className="whitespace-pre-wrap text-sm/5">
           <span className="font-[500]">{userName}</span>{" "}
-          {notificationAction?.description}
+          {notificationAction.description}
         </p>
-        <span className="text-xs">6 hours ago</span>
+        <span className="text-xs">{fToNow(date)}</span>
       </div>
 
       {isUnread && (

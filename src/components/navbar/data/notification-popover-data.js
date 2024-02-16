@@ -9,32 +9,32 @@ const notificationAction = [
   {
     description: `accepted your friend request.`,
     icon: <FaUser />,
-    color: "primary",
+    color: "bg-primary",
   },
   {
     description: `reacted to your story. `,
     icon: <BsImages />,
-    color: "primary",
+    color: "bg-primary",
   },
   {
     description: `likes your comment: "That's awesome..."`,
     icon: <AiFillLike />,
-    color: "primary",
+    color: "bg-primary",
   },
   {
     description: `shared ${faker.person.fullName()}'s post`,
     icon: <FaShare />,
-    color: "primary",
+    color: "bg-primary",
   },
   {
     description: `commented on your post`,
     icon: <FaMessage />,
-    color: "destructive",
+    color: "bg-success",
   },
   {
     description: `commented on his post`,
     icon: <FaMessage />,
-    color: "destructive",
+    color: "bg-primary",
   },
 ];
 
@@ -44,5 +44,5 @@ export const NotificationPopoverData = [...Array(24)].map((_, index) => ({
   userName: faker.person.fullName(),
   notificationAction: sample(notificationAction),
   isUnread: faker.datatype.boolean(),
-  date: faker.date.past(),
+  date: faker.date.recent(),
 }));

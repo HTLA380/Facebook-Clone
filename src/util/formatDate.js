@@ -18,15 +18,20 @@ export function fTimestamp(date) {
   return date ? getTime(new Date(date)) : "";
 }
 
-export function fToNow(date) {
+export function fToNow(date, isOneWord = false) {
   if (!date) return "";
 
   const distance = formatDistanceToNow(new Date(date), {
     includeSeconds: true,
+    addSuffix: true,
   });
 
-  // Extracting only the numerical part and the unit
-  const [, number, unit] = distance.match(/(\d+)\s(\w+)/);
+  if (isOneWord) {
+    // Extracting only the numerical part and the unit
+    const [, number, unit] = distance.match(/(\d+)\s(\w+)/);
 
-  return `${number}${unit[0]}`; // Return only the number and the first character of the unit (e.g., 3d)
+    return `${number}${unit[0]}`; // Return only the number and the first character of the unit (e.g., 3d)
+  }
+
+  return distance;
 }
