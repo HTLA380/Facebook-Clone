@@ -1,11 +1,9 @@
 const express = require("express");
 const app = express();
-
+const notifications = require("./routes/notifications");
 const PORT = 8080;
 
-app.get("/api/notifications", (req, res) => {
-  res.json({ message: "Hello World" });
-});
+app.use("/api/notifications", notifications);
 
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
