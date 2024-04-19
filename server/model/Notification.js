@@ -12,8 +12,8 @@ const notificationSchema = new mongoose.Schema({
     trim: true,
   },
   date: {
-    type: Date,
-    default: Date.now(),
+    type: String,
+    require: [true, "notification date is required"],
   },
 });
 

@@ -1,8 +1,8 @@
 const express = require("express");
 const app = express();
 
-const dotenv = require("dotenv");
-dotenv.config();
+require("express-async-errors");
+require("dotenv").config();
 
 const errorHandlerMiddleware = require("./middlewares/error-handler");
 const notFound = require("./middlewares/not-found");
@@ -11,6 +11,7 @@ const connectDB = require("./db/connect");
 
 const notifications = require("./routes/notifications");
 
+app.use(express.json());
 app.use("/api/notifications", notifications);
 app.use(notFound);
 app.use(errorHandlerMiddleware);
