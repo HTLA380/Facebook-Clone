@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
 
 require("express-async-errors");
 require("dotenv").config();
@@ -11,6 +12,7 @@ const connectDB = require("./db/connect");
 
 const notifications = require("./routes/notifications");
 
+app.use(cors());
 app.use(express.json());
 app.use("/api/notifications", notifications);
 app.use(notFound);
