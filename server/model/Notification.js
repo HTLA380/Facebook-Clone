@@ -15,6 +15,10 @@ const notificationSchema = new mongoose.Schema({
     require: [true, "notification description is required"],
     trim: true,
   },
+  unRead: {
+    type: Boolean,
+    default: true,
+  },
   date: {
     type: String,
     require: [true, "notification date is required"],

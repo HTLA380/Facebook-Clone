@@ -3,186 +3,218 @@
     "notificationType": "Message",
     "name": "John Doe",
     "description": "sent you a new message.",
-    "date": "about 20 hours ago"
+    "date": "about 6 hours ago",
+    "unRead": true
   },
   {
     "notificationType": "Share",
     "name": "JohnSon",
     "description": "shared Alice Smith's post.",
-    "date": "about a day ago"
+    "date": "about 8 hours ago",
+    "unRead": true
   },
   {
     "notificationType": "Comment",
     "name": "Alice Smith",
     "description": "commented on your photo.",
-    "date": "about a day ago"
+    "date": "about 3 weeks ago",
+    "unRead": true
   },
   {
     "notificationType": "Reminder",
     "description": "Reminder: 'Music Concert' event is tomorrow.",
-    "date": "about 2 days ago"
+    "date": "about 3 weeks ago",
+    "unRead": false
   },
   {
     "notificationType": "Group",
     "description": "You've been added to the 'Project Team' group.",
-    "date": "about 3 days ago"
+    "date": "about 20 hours ago",
+    "unRead": false
   },
   {
     "notificationType": "Tag",
     "name": "Mark Johnson",
     "description": "tagged you in a video.",
-    "date": "about a week ago"
+    "date": "about a day ago",
+    "unRead": true
   },
   {
     "notificationType": "Like",
     "description": "Your page 'Art Lovers' got a new like.",
-    "date": "about 10 days ago"
+    "date": "about a day ago",
+    "unRead": false
   },
   {
     "notificationType": "Status",
     "name": "John Doe",
     "description": "updated their status.",
-    "date": "about 2 weeks ago"
+    "date": "about 2 days ago",
+    "unRead": false
   },
   {
     "notificationType": "Comment",
     "name": "Sarah Brown",
     "description": "commented on your post.",
-    "date": "about 3 weeks ago"
+    "date": "about a week ago",
+    "unRead": true
   },
   {
     "notificationType": "Share",
     "name": "John Doe",
     "description": "shared Sarah Brown's post.",
-    "date": "about a day ago"
+    "date": "about 2 weeks ago",
+    "unRead": true
   },
   {
     "notificationType": "Group",
     "name": "Laura White",
     "description": "invited you to join the 'Tech Enthusiasts' group.",
-    "date": "about 4 weeks ago"
+    "date": "about 2 weeks ago",
+    "unRead": true
   },
   {
     "notificationType": "Birthday Reminder",
     "name": "Alex Smith",
     "description": "'s birthday tomorrow. Don't forget to wish!",
-    "date": "about a month ago"
+    "date": "about 2 weeks ago",
+    "unRead": true
   },
   {
     "notificationType": "Friend",
     "name": "John Doe",
     "description": "sent you a friend request.",
-    "date": "about 20 hours ago"
+    "date": "about 2 weeks ago",
+    "unRead": false
   },
   {
     "notificationType": "Friend",
     "name": "Jane Smith",
     "description": "accepted your friend request.",
-    "date": "about a day ago"
+    "date": "about 3 weeks ago",
+    "unRead": false
   },
   {
     "notificationType": "Like",
     "name": "Sarah Johnson",
     "description": "and 12 others liked your post.",
-    "date": "about 2 days ago"
+    "date": "about 3 months ago",
+    "unRead": false
   },
   {
     "notificationType": "Comment",
     "name": "David Brown",
     "description": "and 3 others commented on your post.",
-    "date": "about 3 days ago"
+    "date": "about 3 months ago",
+    "unRead": false
   },
   {
     "notificationType": "Tag",
     "name": "Alex Lee",
     "description": "tagged you in a video.",
-    "date": "about a week ago"
+    "date": "about 3 weeks ago",
+    "unRead": false
   },
   {
     "notificationType": "Event",
     "name": "Emily White",
     "description": "invited you to the 'Birthday Bash' event.",
-    "date": "about 10 days ago"
+    "date": "about 3 weeks ago",
+    "unRead": false
   },
   {
     "notificationType": "Group",
     "name": "Mark Taylor",
     "description": "invited you to join the 'Travel Enthusiasts' group.",
-    "date": "about 2 weeks ago"
+    "date": "about 3 weeks ago",
+    "unRead": false
   },
   {
     "notificationType": "Mention",
     "name": "Lisa Green",
     "description": "mentioned you in a comment.",
-    "date": "about 3 weeks ago"
+    "date": "about 3 weeks ago",
+    "unRead": true
   },
   {
     "notificationType": "Message",
     "name": "Michael Johnson",
     "description": "sent you a new message.",
-    "date": "about 4 weeks ago"
+    "date": "about 3 weeks ago",
+    "unRead": true
   },
   {
     "notificationType": "Birthday",
     "name": "Jane Doe",
     "description": "'s birthday today. Wish her a happy birthday!",
-    "date": "about a month ago"
+    "date": "about a month ago",
+    "unRead": true
   },
   {
     "notificationType": "Friend",
     "name": "Emily Johnson",
     "description": "sent you a friend request.",
-    "date": "about 6 hours ago"
+    "date": "about a month ago",
+    "unRead": true
   },
   {
     "notificationType": "Mention",
     "name": "David Wilson",
     "description": "Mentioned your page 'Travel Adventures' in a post.",
-    "date": "about 12 hours ago"
+    "date": "about a month ago",
+    "unRead": false
   },
   {
     "notificationType": "Group",
     "description": "Reminder: 'Book Club Meeting' is happening tonight.",
-    "date": "about 18 hours ago"
+    "date": "about a month ago",
+    "unRead": false
   },
   {
     "notificationType": "Message",
     "name": "Sarah Miller",
     "description": "sent you a new message.",
-    "date": "about a day ago"
+    "date": "about 2 months ago",
+    "unRead": false
   },
   {
     "notificationType": "Like",
     "name": "Robert Green",
     "description": "liked your post.",
-    "date": "about 2 days ago"
+    "date": "about 2 months ago",
+    "unRead": false
   },
   {
     "notificationType": "Comment",
     "description": "A new comment was posted in the 'Fitness Challenge' group.",
-    "date": "about 3 days ago"
+    "date": "about 2 months ago",
+    "unRead": false
   },
   {
     "notificationType": "Event",
     "name": "Jennifer Brown",
     "description": "invited you to the 'Summer BBQ' event.",
-    "date": "about 4 days ago"
+    "date": "about 2 months ago",
+    "unRead": false
   },
   {
     "notificationType": "Share",
     "name": "Jessica Taylor",
     "description": "Shared your page 'Healthy Living'.",
-    "date": "about 5 days ago"
+    "date": "about 2 months ago",
+    "unRead": false
   },
   {
     "notificationType": "Tag",
     "name": "Michael Davis",
     "description": "Tagged you in a post.",
-    "date": "about 6 days ago"
+    "date": "about 2 months ago",
+    "unRead": false
   },
   {
     "notificationType": "Group",
-    "description": "Important announcement from the moderators in the 'Programming Tips' group.",
-    "date": "about a week ago"
+    "description": "Important announcement from the moderators...",
+    "date": "about 3 months ago",
+    "unRead": false
   }
 ]
