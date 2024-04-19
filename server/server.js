@@ -1,18 +1,31 @@
 const express = require("express");
 const app = express();
-const notifications = require("./routes/notifications");
-const errorHandlerMiddleware = require("./middlewares/error-handler");
+
 const dotenv = require("dotenv");
-const notFound = require("./middlewares/not-found");
 dotenv.config();
 
-const PORT = 8080;
+const errorHandlerMiddleware = require("./middlewares/error-handler");
+const notFound = require("./middlewares/not-found");
+
+const connectDB = require("./db/connect");
+
+const notifications = require("./routes/notifications");
 
 app.use("/api/notifications", notifications);
-
 app.use(notFound);
 app.use(errorHandlerMiddleware);
 
-app.listen(PORT, () => {
-  console.log(`Server started on port ${PORT}`);
-});
+const PORT = 8080;
+
+const start = async () => {
+  try {
+    await connectDB(process.env.MONGO_URI);
+    app.listen(PORT, () => {
+      console.log(`Server started on port ${PORT}`);
+    });
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
+start();
