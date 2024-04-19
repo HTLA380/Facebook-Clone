@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
@@ -12,10 +14,21 @@ import { Notifications } from "../_data/notification-popover-data";
 import GenerateIcon from "./GenerateIcon";
 
 interface NotificationsPopoverInterface {
-  notifications: Notifications[];
+  notificationsData: Notifications[];
 }
 
-const NotificationsPopover: React.FC<NotificationsPopoverInterface> = ({ notifications }) => {
+const NotificationsPopover: React.FC<NotificationsPopoverInterface> = ({ notificationsData }) => {
+  const [notifications, setNotifications] = useState<Notifications[]>([]);
+  const [showUnread, setShowUnread] = useState<boolean>(false);
+
+  useEffect(() => {
+    setNotifications(notificationsData);
+  }, []);
+
+  const filteredNotifications = showUnread
+    ? notifications.filter((notification) => notification.unRead)
+    : notifications;
+
   const renderPopoverContent = (
     <PopoverContent className="w-[22.5rem] mr-10 px-2 h-[90vh] overflow-y-scroll rounded_scrollbar">
       <div className="flex items-center justify-between px-2">
@@ -26,10 +39,14 @@ const NotificationsPopover: React.FC<NotificationsPopoverInterface> = ({ notific
       </div>
 
       <div className="flex items-center gap-1 px-2">
-        <Button variant="active" className="rounded-full" size="icon">
+        <Button
+          onClick={() => setShowUnread(false)}
+          variant={!showUnread ? "active" : "ghost"}
+          className="rounded-full"
+          size="icon">
           All
         </Button>
-        <Button variant="ghost" className="rounded-full">
+        <Button onClick={() => setShowUnread(true)} variant={showUnread ? "active" : "ghost"} className="rounded-full">
           Unread
         </Button>
       </div>
@@ -49,7 +66,7 @@ const NotificationsPopover: React.FC<NotificationsPopoverInterface> = ({ notific
 
       {/* ==================== notifications ==================== */}
       <div>
-        {notifications?.map((data: Notifications) => {
+        {filteredNotifications?.map((data: Notifications) => {
           return <NotificationButton key={data._id} {...data} />;
         })}
       </div>
@@ -72,8 +89,9 @@ const NotificationsPopover: React.FC<NotificationsPopoverInterface> = ({ notific
 
 export default NotificationsPopover;
 
-const NotificationButton: React.FC<Notifications> = ({ notificationType, name, description, date }) => {
+const NotificationButton: React.FC<Notifications> = ({ notificationType, name, description, date, unRead }) => {
   const randomNumber = Math.floor(Math.random() * 24) + 1;
+
   const avatarUrl = `/assets/images/avatars/avatar_${randomNumber}.jpg`;
 
   return (
@@ -96,7 +114,7 @@ const NotificationButton: React.FC<Notifications> = ({ notificationType, name, d
         <span className="text-xs">{date}</span>
       </div>
 
-      {/* {isUnread && <div className="absolute w-3 h-3 rounded-full bg-primary right-3 top-5" />} */}
+      {unRead && <div className="absolute w-2.5 h-2.5 rounded-full bg-primary right-3 top-5" />}
     </Button>
   );
 };

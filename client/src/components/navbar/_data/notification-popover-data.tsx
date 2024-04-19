@@ -4,6 +4,7 @@ export interface Notifications {
   name: string;
   description: string;
   date: string;
+  unRead: boolean;
 }
 
 export const getNotifications = async (): Promise<Notifications[]> => {

@@ -60,7 +60,7 @@ const Navbar = async () => {
 
           <MessengerPopover />
 
-          <NotificationsPopover notifications={notifications} />
+          <NotificationsPopover notificationsData={notifications} />
 
           <AccountPopover />
 
