@@ -44,6 +44,7 @@ const updateNotificationById = async (req, res) => {
   try {
     const { id } = req.params;
     const notification = await notificationModel.findByIdAndUpdate(id, req.body, { runValidators: true, new: true });
+    console.log(notification);
     if (!notification) {
       return res.status(404).json({ success: false, message: `notification with id:${id} not found` });
     }
