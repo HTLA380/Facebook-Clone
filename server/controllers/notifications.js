@@ -2,7 +2,15 @@ const notificationModel = require("../model/Notification");
 
 const getNotifications = async (req, res) => {
   try {
-    const notifications = await notificationModel.find({});
+    let result = notificationModel.find({});
+
+    const page = Number(req.query.page) || 1;
+    const limit = Number(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
+
+    result = result.skip(skip).limit(limit);
+
+    const notifications = await result;
     res.status(200).json({ success: true, pages: notifications.length, notifications });
   } catch (error) {
     throw new Error(error);
@@ -12,6 +20,7 @@ const getNotifications = async (req, res) => {
 const getNotificationById = async (req, res) => {
   try {
     const { id } = req.params;
+
     const notification = await notificationModel.findById(id);
     if (!notification) {
       return res.status(404).json({ success: false, message: `notification with id:${id} not found` });
