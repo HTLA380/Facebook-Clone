@@ -1,27 +1,35 @@
-import Icon from "@/components/lucideIcon/Icon";
-import dynamicIconImports from "lucide-react/dynamicIconImports";
 import React from "react";
+import { BiSolidMessage } from "react-icons/bi";
+import { FaBell, FaUser, FaUsers } from "react-icons/fa";
+import { FiAtSign } from "react-icons/fi";
+import { HiThumbUp } from "react-icons/hi";
+import { IoIosShareAlt, IoIosTrendingUp } from "react-icons/io";
+import { MdCake, MdEvent } from "react-icons/md";
+import { AiFillMessage } from "react-icons/ai";
 
-const iconMapping: { [key: string]: { icon: string; color: string } } = {
+const iconMapping: { [key: string]: { icon: React.ReactNode; color: string } } = {
   Friend: {
-    icon: "user",
+    icon: <FaUser />,
     color: "linear-gradient(0deg, rgba(52,131,218,1) 0%, rgba(4,111,229,0.8) 100%)",
   },
-  Group: { icon: "users", color: "linear-gradient(0deg, rgba(52,131,218,1) 0%, rgba(4,111,229,0.8) 100%)" },
-  Like: { icon: "thumbs-up", color: "linear-gradient(0deg, rgba(52,131,218,1) 0%, rgba(4,111,229,0.8) 100%)" },
-  Comment: { icon: "message-circle", color: "linear-gradient(0deg, rgba(86,181,76,1) 0%, #78d36e 100%)" },
-  Share: { icon: "forward", color: "linear-gradient(0deg, rgba(52,131,218,1) 0%, rgba(108,170,240,1) 100%)" },
-  Tag: { icon: "user", color: "linear-gradient(0deg, rgba(52,131,218,1) 0%, rgba(4,111,229,0.8) 100%)" },
-  Event: { icon: "calendar", color: "#2196f3" },
-  Status: { icon: "trending-up", color: "#2196f3" },
-  Mention: { icon: "at-sign", color: "linear-gradient(0deg, rgba(52,131,218,1) 0%, rgba(4,111,229,0.8) 100%)" },
+  Group: { icon: <FaUsers />, color: "linear-gradient(0deg, rgba(52,131,218,1) 0%, rgba(4,111,229,0.8) 100%)" },
+  Like: { icon: <HiThumbUp />, color: "linear-gradient(0deg, rgba(52,131,218,1) 0%, rgba(4,111,229,0.8) 100%)" },
+  Comment: { icon: <BiSolidMessage />, color: "linear-gradient(0deg, rgba(86,181,76,1) 0%, #78d36e 100%)" },
+  Share: { icon: <IoIosShareAlt />, color: "linear-gradient(0deg, rgba(52,131,218,1) 0%, rgba(108,170,240,1) 100%)" },
+  Tag: { icon: <FaUser />, color: "linear-gradient(0deg, rgba(52,131,218,1) 0%, rgba(4,111,229,0.8) 100%)" },
+  Event: { icon: <MdEvent />, color: "#2196f3" },
+  Status: { icon: <IoIosTrendingUp />, color: "#2196f3" },
+  Mention: { icon: <FiAtSign />, color: "linear-gradient(0deg, rgba(52,131,218,1) 0%, rgba(4,111,229,0.8) 100%)" },
   Message: {
-    icon: "message-circle-more",
+    icon: <AiFillMessage />,
     color: "linear-gradient(0deg, rgba(86,181,76,1) 0%, #78d36e 100%)",
   },
-  Birthday: { icon: "cake", color: "linear-gradient(0deg, rgba(231,72,78,1) 0%, rgba(255,162,166,1) 100%)" },
-  "Birthday Reminder": { icon: "cake", color: "linear-gradient(0deg, rgba(231,72,78,1) 0%, rgba(255,162,166,1) 100%)" },
-  Reminder: { icon: "lightbulb", color: "linear-gradient(0deg, rgba(231,72,78,1) 0%, rgba(255,162,166,1) 100%)" },
+  Birthday: { icon: <MdCake />, color: "linear-gradient(0deg, rgba(231,72,78,1) 0%, rgba(255,162,166,1) 100%)" },
+  "Birthday Reminder": {
+    icon: <MdCake />,
+    color: "linear-gradient(0deg, rgba(231,72,78,1) 0%, rgba(255,162,166,1) 100%)",
+  },
+  Reminder: { icon: <FaBell />, color: "linear-gradient(0deg, rgba(231,72,78,1) 0%, rgba(255,162,166,1) 100%)" },
 };
 
 interface GenerateIconInterface {
@@ -37,7 +45,7 @@ const GenerateIcon: React.FC<GenerateIconInterface> = ({ notificationType }) => 
       style={{
         background: color,
       }}>
-      <Icon name={icon as keyof typeof dynamicIconImports} size={15} />
+      {icon}
     </span>
   );
 };

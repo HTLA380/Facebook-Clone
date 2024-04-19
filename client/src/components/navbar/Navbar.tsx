@@ -15,10 +15,12 @@ import AccountPopover from "./account-popover/AccountPopover";
 
 import { buttonVariants } from "../ui/button";
 import DisplayTooltip from "../displayTooltip/DisplayTooltip";
+import { getNotifications } from "./_data/notification-popover-data";
 
 // ==================================================
 
-const Navbar = () => {
+const Navbar = async () => {
+  const notifications = await getNotifications();
   // const location = usePathname();
 
   return (
@@ -58,7 +60,7 @@ const Navbar = () => {
 
           <MessengerPopover />
 
-          <NotificationsPopover />
+          <NotificationsPopover notifications={notifications} />
 
           <AccountPopover />
 
