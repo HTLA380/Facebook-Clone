@@ -4,12 +4,15 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import Link from "next/link";
 import React from "react";
 import { BsThreeDots } from "react-icons/bs";
-import { FaBell, FaUser } from "react-icons/fa";
-import { NotificationPopoverData, NotificationPopoverDataInterface } from "../_data/notification-popover-data";
+import { FaBell } from "react-icons/fa";
+import { Notifications, getNotifications } from "../_data/notification-popover-data";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { fToNow } from "@/utils/formatDate";
+import GenerateIcon from "./GenerateIcon";
 
-const NotificationsPopover = () => {
+const NotificationsPopover = async () => {
+  const notifications = await getNotifications();
+  // console.log(notifications);
+
   const renderPopoverContent = (
     <PopoverContent className="w-[22.5rem] mr-10 px-2 h-[90vh] overflow-y-scroll rounded_scrollbar">
       <div className="flex items-center justify-between px-2">
@@ -43,8 +46,8 @@ const NotificationsPopover = () => {
 
       {/* ==================== notifications ==================== */}
       <div>
-        {NotificationPopoverData.map((data) => {
-          return <NotificationButton key={data.id} {...data} />;
+        {notifications?.map((data: Notifications) => {
+          return <NotificationButton key={data._id} {...data} />;
         })}
       </div>
     </PopoverContent>
@@ -66,36 +69,31 @@ const NotificationsPopover = () => {
 
 export default NotificationsPopover;
 
-const NotificationButton: React.FC<NotificationPopoverDataInterface> = ({
-  avatarUrl,
-  userName,
-  notificationAction,
-  isUnread,
-  date,
-}) => {
-  const iconBgColor = `bg-${notificationAction?.color}`;
+const NotificationButton: React.FC<Notifications> = ({ notificationType, name, description, date }) => {
+  const randomNumber = Math.floor(Math.random() * 24);
+  const avatarUrl = `/assets/images/avatars/avatar_${randomNumber}.jpg`;
 
   return (
     <Button className="relative flex items-center justify-start w-full gap-3 px-2 h-fit" variant="ghost">
       <div className="relative">
         <Avatar className="w-14 h-14">
           <AvatarImage src={avatarUrl} />
-          <AvatarFallback>{userName}</AvatarFallback>
+          <AvatarFallback>{"Image Fallback Name"}</AvatarFallback>
         </Avatar>
 
-        <span className={`absolute p-1.5 text-sm rounded-full -right-1.5 -bottom-1.5 text-gray-100 ${iconBgColor}`}>
-          {notificationAction?.icon}
-        </span>
+        <div className={`absolute -right-1.5 -bottom-1.5`}>
+          <GenerateIcon notificationType={notificationType} />
+        </div>
       </div>
 
       <div className="w-[70%] font-normal text-left text-accent-foreground">
         <p className="whitespace-pre-wrap text-sm/5">
-          <span className="font-[500]">{userName}</span> {notificationAction.description}
+          <span className="font-medium">{name}</span> {description}
         </p>
-        <span className="text-xs">{fToNow(date)}</span>
+        <span className="text-xs">{date}</span>
       </div>
 
-      {isUnread && <div className="absolute w-3 h-3 rounded-full bg-primary right-3 top-5" />}
+      {/* {isUnread && <div className="absolute w-3 h-3 rounded-full bg-primary right-3 top-5" />} */}
     </Button>
   );
 };

@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 
 import Link from "next/link";
@@ -21,7 +19,7 @@ import DisplayTooltip from "../displayTooltip/DisplayTooltip";
 // ==================================================
 
 const Navbar = () => {
-  const location = usePathname();
+  // const location = usePathname();
 
   return (
     <header className="fixed inset-x-0 z-20 w-full px-4 py-2 bg-primary-foreground">
@@ -37,7 +35,7 @@ const Navbar = () => {
 
         {/* ================================================== */}
         <div className="flex items-center justify-center flex-grow h-full max-w-[680px] gap-2 ">
-          {NAV_LINK_OPTIONS.map((eachOption) => {
+          {/* {NAV_LINK_OPTIONS.map((eachOption) => {
             const isActive = eachOption.destination === location;
             const normalColor = "text-gray-500";
             const activeColor =
@@ -51,7 +49,7 @@ const Navbar = () => {
                 {eachOption.icon}
               </RenderNavLink>
             );
-          })}
+          })} */}
         </div>
 
         {/* ================================================== */}
