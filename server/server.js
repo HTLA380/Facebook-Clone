@@ -10,11 +10,14 @@ const notFound = require("./middlewares/not-found");
 
 const connectDB = require("./db/connect");
 
+const authenticate = require("./routes/authenticate");
 const notifications = require("./routes/notifications");
+const authMiddleware = require("./middlewares/authMiddleware");
 
 app.use(cors());
 app.use(express.json());
-app.use("/api/notifications", notifications);
+app.use("/api/auth", authenticate);
+app.use("/api/notifications", authMiddleware, notifications);
 app.use(notFound);
 app.use(errorHandlerMiddleware);
 
