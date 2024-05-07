@@ -1,21 +1,20 @@
-import React from "react";
+import React from 'react';
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import Link from 'next/link';
 
-import { FaFacebook, FaHome, FaUserFriends, FaVideo } from "react-icons/fa";
-import { IoPeopleCircleOutline } from "react-icons/io5";
-import { IoIosMenu } from "react-icons/io";
+import { FaFacebook, FaHome, FaUserFriends, FaVideo } from 'react-icons/fa';
+import { IoPeopleCircleOutline } from 'react-icons/io5';
+import { IoIosMenu } from 'react-icons/io';
 
-import SearchBar from "./search/SearchBar";
-import MenuPopover from "./menu-popover/MenuPopover";
-import MessengerPopover from "./messenger-popover/MessengerPopover";
-import NotificationsPopover from "./notifications-popover/NotificationsPopover";
-import AccountPopover from "./account-popover/AccountPopover";
+import SearchBar from './search/SearchBar';
+import MenuPopover from './menu-popover/MenuPopover';
+import MessengerPopover from './messenger-popover/MessengerPopover';
+import NotificationsPopover from './notifications-popover/NotificationsPopover';
+import AccountPopover from './account-popover/AccountPopover';
 
-import { buttonVariants } from "../ui/button";
-import DisplayTooltip from "../displayTooltip/DisplayTooltip";
-import { getNotifications } from "./_data/notification-popover-data";
+import { buttonVariants } from '../ui/button';
+import DisplayTooltip from '../displayTooltip/DisplayTooltip';
+import { getNotifications } from './_data/notification-popover-data';
 
 // ==================================================
 
@@ -24,19 +23,19 @@ const Navbar = async () => {
   // const location = usePathname();
 
   return (
-    <header className="fixed inset-x-0 z-20 w-full px-4 py-2 bg-primary-foreground">
-      <nav className="flex items-center justify-between gap-5">
+    <header className='fixed inset-x-0 z-20 w-full px-4 py-2 bg-primary-foreground'>
+      <nav className='flex items-center justify-between gap-5'>
         {/* ================================================== */}
-        <div className="flex items-center h-full gap-3 w-full max-w-[360px]">
-          <Link href={"/"}>
-            <FaFacebook size={45} className="text-primary" />
+        <div className='flex items-center h-full gap-3 w-full max-w-[360px]'>
+          <Link href={'/'}>
+            <FaFacebook size={45} className='text-primary' />
           </Link>
 
           <SearchBar />
         </div>
 
         {/* ================================================== */}
-        <div className="flex items-center justify-center flex-grow h-full max-w-[680px] gap-2 ">
+        <div className='flex items-center justify-center flex-grow h-full max-w-[680px] gap-2 '>
           {/* {NAV_LINK_OPTIONS.map((eachOption) => {
             const isActive = eachOption.destination === location;
             const normalColor = "text-gray-500";
@@ -55,7 +54,7 @@ const Navbar = async () => {
         </div>
 
         {/* ================================================== */}
-        <div className="flex items-center justify-end h-full gap-2 w-full max-w-[360px]">
+        <div className='flex items-center justify-end h-full gap-2 w-full max-w-[360px]'>
           <MenuPopover />
 
           <MessengerPopover />
@@ -83,7 +82,7 @@ const RenderNavLink: React.FC<RenderNavLinkProps> = ({ destination, children, cl
     <DisplayTooltip tooltipName={name}>
       <Link
         className={buttonVariants({
-          variant: "ghost",
+          variant: 'ghost',
           className: className,
         })}
         href={destination}>
@@ -94,25 +93,25 @@ const RenderNavLink: React.FC<RenderNavLinkProps> = ({ destination, children, cl
 };
 
 const NAV_LINK_OPTIONS = [
-  { name: "home", destination: "/", icon: <FaHome size={25} /> },
+  { name: 'home', destination: '/', icon: <FaHome size={25} /> },
 
   {
-    name: "friends",
-    destination: "/friends",
+    name: 'friends',
+    destination: '/friends',
     icon: <FaUserFriends size={25} />,
   },
 
-  { name: "watch", destination: "/watch", icon: <FaVideo size={25} /> },
+  { name: 'watch', destination: '/watch', icon: <FaVideo size={25} /> },
 
   {
-    name: "groups",
-    destination: "/groups",
+    name: 'groups',
+    destination: '/groups',
     icon: <IoPeopleCircleOutline size={25} />,
   },
 
   {
-    name: "bookmarks",
-    destination: "/bookmarks",
+    name: 'bookmarks',
+    destination: '/bookmarks',
     icon: <IoIosMenu size={25} />,
   },
 ];

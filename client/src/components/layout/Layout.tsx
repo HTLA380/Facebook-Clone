@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import React from "react";
-import Navbar from "../navbar/Navbar";
-import { usePathname } from "next/navigation";
+import React from 'react';
+import Navbar from '../navbar/Navbar';
+import { usePathname } from 'next/navigation';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -10,7 +10,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const pathname = usePathname();
-  const excludedRoutes = ["/login", "/register"];
+  const excludedRoutes = ['/login', '/register'];
 
   console.log(pathname);
 
