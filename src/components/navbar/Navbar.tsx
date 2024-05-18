@@ -19,7 +19,7 @@ import { getNotifications } from './_data/notification-popover-data';
 // ==================================================
 
 const Navbar = async () => {
-  const notifications = await getNotifications();
+  // const notifications = await getNotifications();
   // const location = usePathname();
 
   return (
@@ -59,7 +59,7 @@ const Navbar = async () => {
 
           <MessengerPopover />
 
-          <NotificationsPopover notificationsData={notifications} />
+          {/* <NotificationsPopover notificationsData={notifications} /> */}
 
           <AccountPopover />
 
