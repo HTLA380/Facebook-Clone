@@ -14,13 +14,20 @@ import AccountPopover from './account-popover/AccountPopover';
 
 import { buttonVariants } from '../ui/button';
 import DisplayTooltip from '../displayTooltip/DisplayTooltip';
+import { getServerSession } from 'next-auth';
+import { options } from '@/app/api/auth/[...nextauth]/options';
 import { getNotifications } from './_data/notification-popover-data';
 
 // ==================================================
 
 const Navbar = async () => {
-  // const notifications = await getNotifications();
+  const session = await getServerSession(options);
+  const notifications = await getNotifications();
   // const location = usePathname();
+
+  if (!session) {
+    return null;
+  }
 
   return (
     <header className='fixed inset-x-0 z-20 w-full px-4 py-2 bg-primary-foreground'>
@@ -59,9 +66,9 @@ const Navbar = async () => {
 
           <MessengerPopover />
 
-          {/* <NotificationsPopover notificationsData={notifications} /> */}
+          <NotificationsPopover notificationsData={notifications} />
 
-          <AccountPopover />
+          <AccountPopover image={session.user.picture} name={session.user.name} />
 
           {/* <Button onClick={() => signOut()}>Sign Out</Button> */}
         </div>

@@ -3,22 +3,26 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
+import { NotificationsInterface } from '../_data/notification-popover-data';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import DisplayTooltip from '@/components/displayTooltip/DisplayTooltip';
 import { Button, buttonVariants } from '@/components/ui/button';
+import GenerateIcon from './GenerateIcon';
 
 import { BsThreeDots } from 'react-icons/bs';
 import { FaBell } from 'react-icons/fa';
-import { NotificationsType } from '../_data/notification-popover-data';
-import GenerateIcon from './GenerateIcon';
+import { fDate } from '@/utils/formatDate';
+import { truncateString } from '@/utils/utils';
+
+// ==========================================================================
 
 interface NotificationsPopoverInterface {
-  notificationsData: NotificationsType[];
+  notificationsData: NotificationsInterface[];
 }
 
 const NotificationsPopover: React.FC<NotificationsPopoverInterface> = ({ notificationsData }) => {
-  const [notifications, setNotifications] = useState<NotificationsType[]>([]);
+  const [notifications, setNotifications] = useState<NotificationsInterface[]>([]);
   const [showUnread, setShowUnread] = useState<boolean>(false);
 
   useEffect(() => {
@@ -26,7 +30,7 @@ const NotificationsPopover: React.FC<NotificationsPopoverInterface> = ({ notific
   }, []);
 
   const filteredNotifications = showUnread
-    ? notifications.filter((notification) => notification.unRead)
+    ? notifications.filter((notification) => notification.isUnread)
     : notifications;
 
   const renderPopoverContent = (
@@ -66,8 +70,8 @@ const NotificationsPopover: React.FC<NotificationsPopoverInterface> = ({ notific
 
       {/* ==================== notifications ==================== */}
       <div>
-        {filteredNotifications?.map((data: NotificationsType) => {
-          return <NotificationButton key={data._id} {...data} />;
+        {filteredNotifications?.map((data: NotificationsInterface) => {
+          return <NotificationButton key={data.id} {...data} />;
         })}
       </div>
     </PopoverContent>
@@ -89,7 +93,7 @@ const NotificationsPopover: React.FC<NotificationsPopoverInterface> = ({ notific
 
 export default NotificationsPopover;
 
-const NotificationButton: React.FC<NotificationsType> = ({ notificationType, name, description, date, unRead }) => {
+const NotificationButton: React.FC<NotificationsInterface> = ({ name, description, createdAt, isUnread }) => {
   const randomNumber = Math.floor(Math.random() * 24) + 1;
 
   const avatarUrl = `/assets/images/avatars/avatar_${randomNumber}.jpg`;
@@ -103,18 +107,18 @@ const NotificationButton: React.FC<NotificationsType> = ({ notificationType, nam
         </Avatar>
 
         <div className={`absolute -right-1.5 -bottom-1.5`}>
-          <GenerateIcon notificationType={notificationType} />
+          <GenerateIcon />
         </div>
       </div>
 
       <div className='w-[70%] font-normal text-left text-accent-foreground'>
-        <p className='whitespace-pre-wrap text-sm/5'>
-          <span className='font-medium'>{name}</span> {description}
+        <p className='whitespace-pre-wrap text-sm/5 font-medium'>
+          {name} <span className='font-normal text-xs ml-1'>{truncateString(description, 50)}</span>
         </p>
-        <span className='text-xs'>{date}</span>
+        <span className='text-xs'>{fDate(createdAt)}</span>
       </div>
 
-      {unRead && <div className='absolute w-2.5 h-2.5 rounded-full bg-primary right-3 top-5' />}
+      {isUnread && <div className='absolute w-2.5 h-2.5 rounded-full bg-primary right-3 top-5' />}
     </Button>
   );
 };

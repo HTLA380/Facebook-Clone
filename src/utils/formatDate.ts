@@ -1,25 +1,25 @@
-import { format, getTime, formatDistanceToNow } from "date-fns";
+import { format, getTime, formatDistanceToNow } from 'date-fns';
 
 // ----------------------------------------------------------------------
 
-export function fDate(date: Date, newFormat: string) {
-  const fm = newFormat || "dd MMM yyyy";
+export function fDate(date: Date, newFormat?: string) {
+  const fm = newFormat || 'dd MMM yyyy';
 
-  return date ? format(new Date(date), fm) : "";
+  return date ? format(new Date(date), fm) : '';
 }
 
 export function fDateTime(date: Date, newFormat: string) {
-  const fm = newFormat || "dd MMM yyyy p";
+  const fm = newFormat || 'dd MMM yyyy p';
 
-  return date ? format(new Date(date), fm) : "";
+  return date ? format(new Date(date), fm) : '';
 }
 
 export function fTimestamp(date: Date) {
-  return date ? getTime(new Date(date)) : "";
+  return date ? getTime(new Date(date)) : '';
 }
 
 export function fToNow(date: Date, isOneWord = false) {
-  if (!date) return "";
+  if (!date) return '';
 
   const distance = formatDistanceToNow(new Date(date), {
     includeSeconds: true,
