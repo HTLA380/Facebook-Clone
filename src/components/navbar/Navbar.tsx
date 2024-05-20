@@ -16,13 +16,11 @@ import { buttonVariants } from '../ui/button';
 import DisplayTooltip from '../displayTooltip/DisplayTooltip';
 import { getServerSession } from 'next-auth';
 import { options } from '@/app/api/auth/[...nextauth]/options';
-import { getNotifications } from './_data/notification-popover-data';
 
 // ==================================================
 
 const Navbar = async () => {
   const session = await getServerSession(options);
-  const notifications = await getNotifications();
   // const location = usePathname();
 
   if (!session) {
@@ -66,7 +64,7 @@ const Navbar = async () => {
 
           <MessengerPopover />
 
-          <NotificationsPopover notificationsData={notifications} />
+          <NotificationsPopover />
 
           <AccountPopover image={session.user.picture} name={session.user.name} />
 

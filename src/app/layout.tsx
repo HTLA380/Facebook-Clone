@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/navbar/Navbar';
 import { TooltipProvider } from '@/components/ui/tooltip';
+import ReactQueryProvider from '@/components/providers/ReactQueryProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,12 +19,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <TooltipProvider>
+      <ReactQueryProvider>
         <body className={inter.className}>
-          <Navbar />
-          {children}
+          <TooltipProvider>
+            <Navbar />
+            {children}
+          </TooltipProvider>
         </body>
-      </TooltipProvider>
+      </ReactQueryProvider>
     </html>
   );
 }

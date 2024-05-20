@@ -14,20 +14,20 @@ import { BsThreeDots } from 'react-icons/bs';
 import { FaBell } from 'react-icons/fa';
 import { fDate } from '@/utils/formatDate';
 import { truncateString } from '@/utils/utils';
+import { useNotifications } from '@/hooks/use-notifications';
 
 // ==========================================================================
 
-interface NotificationsPopoverInterface {
-  notificationsData: NotificationsInterface[];
-}
-
-const NotificationsPopover: React.FC<NotificationsPopoverInterface> = ({ notificationsData }) => {
+const NotificationsPopover = () => {
   const [notifications, setNotifications] = useState<NotificationsInterface[]>([]);
   const [showUnread, setShowUnread] = useState<boolean>(false);
+  const { data, isLoading } = useNotifications();
 
   useEffect(() => {
-    setNotifications(notificationsData);
-  }, []);
+    if (data && Array.isArray(data)) {
+      setNotifications(data);
+    }
+  }, [data]);
 
   const filteredNotifications = showUnread
     ? notifications.filter((notification) => notification.isUnread)
@@ -70,6 +70,7 @@ const NotificationsPopover: React.FC<NotificationsPopoverInterface> = ({ notific
 
       {/* ==================== notifications ==================== */}
       <div>
+        {isLoading && <div>Loading...</div>}
         {filteredNotifications?.map((data: NotificationsInterface) => {
           return <NotificationButton key={data.id} {...data} />;
         })}
@@ -93,17 +94,13 @@ const NotificationsPopover: React.FC<NotificationsPopoverInterface> = ({ notific
 
 export default NotificationsPopover;
 
-const NotificationButton: React.FC<NotificationsInterface> = ({ name, description, createdAt, isUnread }) => {
-  const randomNumber = Math.floor(Math.random() * 24) + 1;
-
-  const avatarUrl = `/assets/images/avatars/avatar_${randomNumber}.jpg`;
-
+const NotificationButton: React.FC<NotificationsInterface> = ({ name, description, createdAt, isUnread, avatar }) => {
   return (
     <Button className='relative flex items-center justify-start w-full gap-3 px-2 h-fit' variant='ghost'>
       <div className='relative'>
         <Avatar className='w-14 h-14'>
-          <AvatarImage src={avatarUrl} />
-          <AvatarFallback>{'Image Fallback Name'}</AvatarFallback>
+          <AvatarImage src={avatar} />
+          <AvatarFallback>{name.charAt(0)}</AvatarFallback>
         </Avatar>
 
         <div className={`absolute -right-1.5 -bottom-1.5`}>
