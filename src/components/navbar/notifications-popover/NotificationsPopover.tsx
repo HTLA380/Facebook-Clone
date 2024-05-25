@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import ClipLoader from 'react-spinners/ClipLoader';
 import Link from 'next/link';
 
-import { NotificationsInterface } from '../_data/notification-popover-data';
+import { NotificationsInterface } from '@/hooks/use-notifications';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import DisplayTooltip from '@/components/displayTooltip/DisplayTooltip';
@@ -70,7 +71,18 @@ const NotificationsPopover = () => {
 
       {/* ==================== notifications ==================== */}
       <div>
-        {isLoading && <div>Loading...</div>}
+        {isLoading && (
+          <div className='flex items-center justify-center pt-40'>
+            <ClipLoader
+              speedMultiplier={0.5}
+              color={'#020817'}
+              size={50}
+              aria-label='Loading Spinner'
+              data-testid='loader'
+            />
+          </div>
+        )}
+
         {filteredNotifications?.map((data: NotificationsInterface) => {
           return <NotificationButton key={data.id} {...data} />;
         })}
@@ -110,7 +122,7 @@ const NotificationButton: React.FC<NotificationsInterface> = ({ name, descriptio
 
       <div className='w-[70%] font-normal text-left text-accent-foreground'>
         <p className='whitespace-pre-wrap text-sm/5 font-medium'>
-          {name} <span className='font-normal text-xs ml-1'>{truncateString(description, 50)}</span>
+          {name} <span className='font-normal text-xs ml-1'>{truncateString(description, 45)}</span>
         </p>
         <span className='text-xs'>{fDate(createdAt)}</span>
       </div>
