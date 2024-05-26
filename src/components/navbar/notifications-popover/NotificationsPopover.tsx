@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import ClipLoader from 'react-spinners/ClipLoader';
 import Link from 'next/link';
 
-import { NotificationsInterface } from '@/hooks/use-notifications';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import DisplayTooltip from '@/components/displayTooltip/DisplayTooltip';
@@ -15,7 +14,7 @@ import { BsThreeDots } from 'react-icons/bs';
 import { FaBell } from 'react-icons/fa';
 import { fDate } from '@/utils/formatDate';
 import { truncateString } from '@/utils/utils';
-import { useNotifications } from '@/hooks/use-notifications';
+import { useNotifications, NotificationsInterface } from '@/hooks/use-notifications';
 
 // ==========================================================================
 
