@@ -37,11 +37,11 @@ const NAV_LINK_OPTIONS = [
   },
 ];
 
-const NavLinkItems = () => {
+const NavLinkItemsContainer = () => {
   const location = usePathname();
 
   return (
-    <div className='flex items-center justify-center flex-grow h-full max-w-[680px] gap-2 '>
+    <div className='w-full flex items-center justify-center flex-grow h-full max-w-[450px] xl:max-w-[680px] gap-2 '>
       {NAV_LINK_OPTIONS.map((eachOption) => {
         const isActive = eachOption.destination === location;
         const normalColor = 'text-gray-500';
@@ -83,4 +83,4 @@ const RenderNavLink: React.FC<RenderNavLinkProps> = ({ destination, children, cl
   );
 };
 
-export default NavLinkItems;
+export default NavLinkItemsContainer;
