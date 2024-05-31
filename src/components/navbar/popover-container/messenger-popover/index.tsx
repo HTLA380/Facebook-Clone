@@ -23,7 +23,7 @@ const MessengerPopover = () => {
   const { data: messagesData, isLoading } = useMessages();
 
   const renderPopoverContent = (
-    <PopoverContent className='relative p-0 mr-10 w-[22.5rem] h-[90vh]'>
+    <PopoverContent className='relative p-0 mr-10 w-360px h-90vh'>
       <div className='h-full pt-4 overflow-y-scroll pb-14'>
         <header className='flex items-center justify-between px-4 mb-4'>
           <h3 className='text-2xl font-bold'>Chats</h3>

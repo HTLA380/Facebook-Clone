@@ -22,7 +22,7 @@ const PopoverContainer: React.FC<PopoverContainerProps> = ({ session }) => {
   });
 
   return (
-    <div className='flex items-center justify-end h-full gap-2 max-w-[360px]'>
+    <div className='flex items-center justify-end h-full gap-2 max-w-360px'>
       {isDesktop ? <MenuPopover /> : <CreatePopover />}
       <MessengerPopover />
       <NotificationsPopover />

@@ -13,6 +13,23 @@ const config = {
       },
     },
     extend: {
+      width: {
+        '360px': '22.5rem',
+        '392px': '24.5rem',
+        '592px': '37rem',
+        '70%': '70%',
+      },
+      maxWidth: {
+        '200px': '12.5rem',
+        '360px': '22.5rem',
+        '450px': '28.125rem',
+        '680px': '42.5rem',
+      },
+      height: {
+        '50vh': '50vh',
+        '90vh': '90vh',
+        '43px': '2.6875rem',
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -66,9 +83,6 @@ const config = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-      },
-      height: {
-        '43px': '2.6875rem',
       },
     },
   },

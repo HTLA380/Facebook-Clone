@@ -16,7 +16,7 @@ const SearchBarContainer = () => {
   });
 
   return (
-    <div className='flex items-center h-full gap-3 w-[200px] xl:w-[360px]'>
+    <div className='flex items-center h-full gap-3 max-w-200px xl:max-w-360px'>
       <Link href={'/'}>
         <FaFacebook size={45} className='text-primary' />
       </Link>

@@ -32,7 +32,7 @@ const NotificationsPopover = () => {
     : notifications;
 
   const renderPopoverContent = (
-    <PopoverContent className='w-[22.5rem] mr-10 px-2 h-[90vh] overflow-y-scroll rounded_scrollbar'>
+    <PopoverContent className='w-360px mr-10 px-2 h-90vh overflow-y-scroll rounded_scrollbar'>
       <div className='flex items-center justify-between px-2'>
         <h3 className='text-2xl font-bold '>Notifications</h3>
         <Button variant='ghost' size='icon' className='text-xl rounded-full text-muted-foreground'>
@@ -117,7 +117,7 @@ const NotificationButton: React.FC<NotificationsInterface> = ({ name, descriptio
         </div>
       </div>
 
-      <div className='w-[70%] font-normal text-left text-accent-foreground'>
+      <div className='w-70% font-normal text-left text-accent-foreground'>
         <p className='whitespace-pre-wrap text-sm/5 font-medium'>
           {name} <span className='font-normal text-xs ml-1'>{truncateString(description, 45)}</span>
         </p>
