@@ -19,29 +19,24 @@ import { cn } from '@/lib/utils';
 type NavLinkOptionType = {
   name: string;
   destination: string;
-  icon: React.ReactNode[];
+  icon: React.ReactNode;
 };
 
 const NAV_LINK_OPTIONS: NavLinkOptionType[] = [
-  { name: 'home', destination: '/', icon: [<FaHome size={25} />] },
+  { name: 'home', destination: '/', icon: <FaHome size={25} /> },
 
   {
     name: 'friends',
     destination: '/friends',
-    icon: [<FaUserFriends size={25} />],
+    icon: <FaUserFriends size={25} />,
   },
 
-  { name: 'watch', destination: '/watch', icon: [<FaVideo size={25} />] },
+  { name: 'watch', destination: '/watch', icon: <FaVideo size={25} /> },
 
   {
     name: 'groups',
     destination: '/groups',
-    icon: [<IoPeopleCircleOutline size={25} />],
-  },
-  {
-    name: 'bookmarks',
-    destination: '/bookmarks',
-    icon: [<CgGames size={25} />, <AiOutlineMenu size={25} />],
+    icon: <IoPeopleCircleOutline size={25} />,
   },
 ];
 
@@ -50,26 +45,39 @@ const NavLinkItemsContainer = () => {
   const isDesktop = useMediaQuery({
     query: '(min-width: 1280px)',
   });
+  const isLargeScreen = useMediaQuery({
+    query: '(min-width: 680px)',
+  });
 
+  const normalColor = 'text-gray-500';
+  const activeColor =
+    'text-primary hover:text-primary before:absolute before:w-full before:h-1 before:-bottom-2 before:left-0 before:bg-primary hover:unset hover:bg-transparent';
   return (
-    <div className='w-full flex items-center justify-center flex-grow h-full max-w-450px xl:max-w-680px gap-2 '>
-      {NAV_LINK_OPTIONS.map((eachOption, index) => {
-        const isActive = eachOption.destination === location;
+    <div className='w-full flex items-center flex-grow h-full max-w-450px lg:max-w-680px gap-2 '>
+      {isLargeScreen &&
+        NAV_LINK_OPTIONS.map((eachOption, index) => {
+          const isActive = eachOption.destination === location;
 
-        const normalColor = 'text-gray-500';
-        const activeColor =
-          'text-primary hover:text-primary before:absolute before:w-full before:h-1 before:-bottom-2 before:left-0 before:bg-primary hover:unset hover:bg-transparent';
+          return (
+            <RenderNavLink
+              key={index}
+              className={cn('relative w-full py-6', isActive ? activeColor : normalColor)}
+              destination={eachOption.destination}
+              name={eachOption.name}>
+              {eachOption.icon}
+            </RenderNavLink>
+          );
+        })}
 
-        return (
-          <RenderNavLink
-            key={index}
-            className={cn('relative w-full py-6', isActive ? activeColor : normalColor)}
-            destination={eachOption.destination}
-            name={eachOption.name}>
-            {eachOption.icon.length > 1 && isDesktop ? eachOption.icon[0] : eachOption.icon[1] || eachOption.icon[0]}
-          </RenderNavLink>
-        );
-      })}
+      <RenderNavLink
+        className={cn(
+          'relative w-full py-6 max-w-24 md:max-w-none',
+          location === '/bookmarks' ? activeColor : normalColor
+        )}
+        destination={'/bookmarks'}
+        name={'bookmarks'}>
+        {isDesktop ? <CgGames size={25} /> : <AiOutlineMenu size={25} />}
+      </RenderNavLink>
     </div>
   );
 };
