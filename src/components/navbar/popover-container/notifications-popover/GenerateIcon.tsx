@@ -1,12 +1,16 @@
 import React from 'react';
-import { BiSolidMessage } from 'react-icons/bi';
-import { FaBell, FaUser, FaUsers } from 'react-icons/fa';
-import { FiAtSign } from 'react-icons/fi';
-import { HiThumbUp } from 'react-icons/hi';
+
 import { IoIosShareAlt, IoIosTrendingUp } from 'react-icons/io';
+import { FaBell, FaUser, FaUsers } from 'react-icons/fa';
 import { MdCake, MdEvent } from 'react-icons/md';
 import { AiFillMessage } from 'react-icons/ai';
+import { BiSolidMessage } from 'react-icons/bi';
+import { HiThumbUp } from 'react-icons/hi';
+import { FiAtSign } from 'react-icons/fi';
+
 import { getRandomElement } from '@/utils/utils';
+
+// ======================================================================
 
 const iconMapping: { icon: React.ReactNode; color: string }[] = [
   {

@@ -1,10 +1,11 @@
 import React from 'react';
 import { FaPlus } from 'react-icons/fa6';
 
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import DisplayTooltip from '@/components/displayTooltip/DisplayTooltip';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
+
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import DisplayTooltip from '@/components/displayTooltip/DisplayTooltip';
 
 import { menuPopoverData2 } from '../../_data/menu-popover-data';
 

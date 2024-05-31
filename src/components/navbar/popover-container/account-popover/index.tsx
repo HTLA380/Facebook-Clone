@@ -1,12 +1,17 @@
-import DisplayTooltip from '@/components/displayTooltip/DisplayTooltip';
-import LinkButton from '@/components/buttons/LinkButton';
+import React from 'react';
+
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Separator } from '@/components/ui/separator';
-import React from 'react';
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
+
+import DisplayTooltip from '@/components/displayTooltip/DisplayTooltip';
+import LinkButton from '@/components/buttons/LinkButton';
+
 import { accountPopoverData } from '../../_data/account-popover-data';
+
+// ======================================================================
 
 interface AccountPopoverProps {
   name?: string | null;
