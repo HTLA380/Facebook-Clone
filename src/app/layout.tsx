@@ -20,12 +20,12 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <ReactQueryProvider>
-        <body className={inter.className}>
-          <TooltipProvider>
+        <TooltipProvider>
+          <body className={inter.className}>
             <Navbar />
             {children}
-          </TooltipProvider>
-        </body>
+          </body>
+        </TooltipProvider>
       </ReactQueryProvider>
     </html>
   );

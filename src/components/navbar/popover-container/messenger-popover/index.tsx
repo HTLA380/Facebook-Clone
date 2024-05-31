@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { useMessages, MessagesInterface } from '@/hooks/use-messages';

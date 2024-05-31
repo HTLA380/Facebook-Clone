@@ -6,7 +6,7 @@ import { Card } from '@/components/ui/card';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Separator } from '@/components/ui/separator';
 import React from 'react';
-import { accountPopoverData } from '../_data/account-popover-data';
+import { accountPopoverData } from '../../_data/account-popover-data';
 
 interface AccountPopoverProps {
   name?: string | null;

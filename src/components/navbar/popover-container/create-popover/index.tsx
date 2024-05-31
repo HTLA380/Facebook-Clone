@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { FaPlus } from 'react-icons/fa6';
 
@@ -8,7 +6,7 @@ import DisplayTooltip from '@/components/displayTooltip/DisplayTooltip';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
 
-import { menuPopoverData2 } from '../_data/menu-popover-data';
+import { menuPopoverData2 } from '../../_data/menu-popover-data';
 
 // ==========================================================================
 

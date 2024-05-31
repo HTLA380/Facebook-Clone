@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 
 import { FaHome, FaUserFriends, FaVideo } from 'react-icons/fa';
 import { IoPeopleCircleOutline } from 'react-icons/io5';
-import { IoIosMenu } from 'react-icons/io';
+import { CgGames } from 'react-icons/cg';
 
 import { buttonVariants } from '@/components/ui/button';
 import DisplayTooltip from '@/components/displayTooltip/DisplayTooltip';
@@ -33,7 +33,7 @@ const NAV_LINK_OPTIONS = [
   {
     name: 'bookmarks',
     destination: '/bookmarks',
-    icon: <IoIosMenu size={25} />,
+    icon: <CgGames size={25} />,
   },
 ];
 
