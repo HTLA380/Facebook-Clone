@@ -7,9 +7,9 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 
 import DisplayTooltip from '@/components/displayTooltip/DisplayTooltip';
-import LinkButton from '@/components/buttons/LinkButton';
 
 import { accountPopoverData } from '../../_data/account-popover-data';
+import Link from 'next/link';
 
 // ======================================================================
 
@@ -22,13 +22,15 @@ const AccountPopover: React.FC<AccountPopoverProps> = ({ name, image }) => {
   const renderPopoverContent = (
     <PopoverContent className='w-full max-w-360px mr-6 px-4'>
       <Card className='flex flex-col items-center w-full gap-1 p-1 mb-2 shadow-md'>
-        <LinkButton destination={'/me'} className='w-full px-2 py-2 rounded-md'>
+        <Link
+          className='flex items-center gap-2 hover:bg-accent text-accent-foreground w-full px-2 py-2 rounded-md'
+          href={'/me'}>
           <Avatar>
             <AvatarImage src={image || 'https://placehold.co/25x25'} />
             <AvatarFallback>{name?.charAt(0)}</AvatarFallback>
           </Avatar>
           <p className='font-semibold text-accent-foreground'>{name}</p>
-        </LinkButton>
+        </Link>
 
         <Separator />
         <Button
