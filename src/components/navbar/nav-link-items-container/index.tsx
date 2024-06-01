@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { useMediaQuery } from 'react-responsive';
 import { usePathname } from 'next/navigation';
 
 import { FaHome, FaUserFriends, FaVideo } from 'react-icons/fa';
@@ -13,41 +12,38 @@ import { buttonVariants } from '@/components/ui/button';
 import DisplayTooltip from '@/components/displayTooltip/DisplayTooltip';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { cn } from '@/lib/utils';
+import useMediaQuery from '@/hooks/use-mediaquery';
 
 // ======================================================================
 
 type NavLinkOptionType = {
   name: string;
-  destination: string;
+  route: string;
   icon: React.ReactNode;
 };
 
 const NAV_LINK_OPTIONS: NavLinkOptionType[] = [
-  { name: 'home', destination: '/', icon: <FaHome size={25} /> },
+  { name: 'home', route: '/', icon: <FaHome size={25} /> },
 
   {
     name: 'friends',
-    destination: '/friends',
+    route: '/friends',
     icon: <FaUserFriends size={25} />,
   },
 
-  { name: 'watch', destination: '/watch', icon: <FaVideo size={25} /> },
+  { name: 'watch', route: '/watch', icon: <FaVideo size={25} /> },
 
   {
     name: 'groups',
-    destination: '/groups',
+    route: '/groups',
     icon: <IoPeopleCircleOutline size={25} />,
   },
 ];
 
 const NavLinkItemsContainer: React.FC = () => {
   const location = usePathname();
-  const isDesktop = useMediaQuery({
-    query: '(min-width: 1280px)',
-  });
-  const isLargeScreen = useMediaQuery({
-    query: '(min-width: 680px)',
-  });
+  const isDesktop = useMediaQuery('(min-width: 1280px)');
+  const isLargeScreen = useMediaQuery('(min-width: 680px)');
 
   const normalColor = 'text-gray-500';
   const activeColor =
@@ -56,13 +52,13 @@ const NavLinkItemsContainer: React.FC = () => {
     <div className='w-full flex items-center flex-grow h-full max-w-450px lg:max-w-680px gap-2 '>
       {isLargeScreen &&
         NAV_LINK_OPTIONS.map((eachOption, index) => {
-          const isActive = eachOption.destination === location;
+          const isActive = eachOption.route === location;
 
           return (
             <RenderNavLink
               key={index}
               className={cn('relative w-full py-6', isActive ? activeColor : normalColor)}
-              destination={eachOption.destination}
+              route={eachOption.route}
               name={eachOption.name}>
               {eachOption.icon}
             </RenderNavLink>
@@ -74,7 +70,7 @@ const NavLinkItemsContainer: React.FC = () => {
           'relative w-full py-6 max-w-24 md:max-w-none',
           location === '/bookmarks' ? activeColor : normalColor
         )}
-        destination={'/bookmarks'}
+        route={'/bookmarks'}
         name={'bookmarks'}>
         {isDesktop ? <CgGames size={25} /> : <AiOutlineMenu size={25} />}
       </RenderNavLink>
@@ -83,13 +79,13 @@ const NavLinkItemsContainer: React.FC = () => {
 };
 
 interface RenderNavLinkProps {
-  destination: string;
+  route: string;
   children: React.ReactNode;
   className?: string;
   name: string;
 }
 
-const RenderNavLink: React.FC<RenderNavLinkProps> = ({ destination, children, className, name }) => {
+const RenderNavLink: React.FC<RenderNavLinkProps> = ({ route, children, className, name }) => {
   return (
     <DisplayTooltip tooltipName={name}>
       <Link
@@ -97,7 +93,7 @@ const RenderNavLink: React.FC<RenderNavLinkProps> = ({ destination, children, cl
           variant: 'ghost',
           className: className,
         })}
-        href={destination}>
+        href={route}>
         {children}
       </Link>
     </DisplayTooltip>

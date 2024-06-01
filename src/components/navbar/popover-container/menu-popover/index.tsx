@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 
 import { menuPopoverData1, menuPopoverData2 } from '../../_data/menu-popover-data';
+import { faker } from '@faker-js/faker';
 
 // ==========================================================================
 
@@ -27,7 +28,7 @@ const MenuPopover = () => {
 
           {menuPopoverData1.map((data) => {
             return (
-              <div className='mt-3' key={data.group}>
+              <div className='mt-3' key={faker.string.uuid()}>
                 <h4 className='px-3 mb-1 font-semibold'>{data.group}</h4>
                 {data.elements.map((item) => {
                   return (
@@ -54,7 +55,7 @@ const MenuPopover = () => {
           {menuPopoverData2.map((item, idx) => {
             const isFourthItem = idx === 3;
             return (
-              <React.Fragment key={`menu-popover-btn-${idx + 1}`}>
+              <React.Fragment key={faker.string.uuid()}>
                 <button className='flex items-center w-full gap-3 px-2 py-1 rounded-md cursor-pointer hover:bg-accent'>
                   <span className='flex items-center justify-center w-10 h-10 text-xl rounded-full bg-secondary'>
                     {item.icon}

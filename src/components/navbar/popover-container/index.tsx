@@ -2,13 +2,13 @@
 
 import React from 'react';
 import { type Session } from 'next-auth';
-import { useMediaQuery } from 'react-responsive';
 
 import CreatePopover from './create-popover';
 import MessengerPopover from './messenger-popover';
 import NotificationsPopover from './notifications-popover';
 import AccountPopover from './account-popover';
 import MenuPopover from './menu-popover';
+import useMediaQuery from '@/hooks/use-mediaquery';
 
 interface PopoverContainerProps {
   session: Session;
@@ -17,9 +17,7 @@ interface PopoverContainerProps {
 // ==================================================
 
 const PopoverContainer: React.FC<PopoverContainerProps> = ({ session }) => {
-  const isDesktop = useMediaQuery({
-    query: '(min-width: 1280px)',
-  });
+  const isDesktop = useMediaQuery('(min-width: 1280px)');
 
   return (
     <div className='flex items-center justify-end h-full gap-2 max-w-360px relative'>
