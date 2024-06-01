@@ -14,6 +14,7 @@ const config = {
     },
     extend: {
       width: {
+        '30vw': '30vw',
         '360px': '22.5rem',
         '392px': '24.5rem',
         '592px': '37rem',
@@ -23,6 +24,7 @@ const config = {
         '200px': '12.5rem',
         '360px': '22.5rem',
         '450px': '28.125rem',
+        '592px': '37rem',
         '680px': '42.5rem',
       },
       height: {

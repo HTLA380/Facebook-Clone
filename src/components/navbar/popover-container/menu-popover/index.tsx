@@ -16,7 +16,7 @@ import { menuPopoverData1, menuPopoverData2 } from '../../_data/menu-popover-dat
 
 const MenuPopover = () => {
   const renderPopoverContent = (
-    <PopoverContent className='w-592px h-90vh mr-8 overflow-scroll rounded_scrollbar'>
+    <PopoverContent className='w-full max-w-592px h-90vh mr-8 overflow-scroll rounded_scrollbar'>
       <h3 className='text-2xl font-bold '>Menu</h3>
 
       <div className='flex items-start gap-4 mt-3'>

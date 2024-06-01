@@ -1,5 +1,5 @@
-import React from "react";
-import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
+import React from 'react';
+import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
 
 interface DisplayTooltipProps {
   children: React.ReactNode;
@@ -10,8 +10,8 @@ const DisplayTooltip: React.FC<DisplayTooltipProps> = ({ children, tooltipName }
   return (
     <Tooltip>
       <TooltipTrigger asChild>{children}</TooltipTrigger>
-      <TooltipContent className="border-0">
-        <p>{tooltipName}</p>
+      <TooltipContent className='border-0'>
+        <p className='text-xs md:text-sm'>{tooltipName}</p>
       </TooltipContent>
     </Tooltip>
   );

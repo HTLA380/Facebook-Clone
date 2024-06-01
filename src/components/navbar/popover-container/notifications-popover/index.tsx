@@ -32,7 +32,7 @@ const NotificationsPopover = () => {
     : notifications;
 
   const renderPopoverContent = (
-    <PopoverContent className='w-360px mr-10 px-2 h-90vh overflow-y-scroll rounded_scrollbar'>
+    <PopoverContent className='w-full max-w-360px mr-10 px-2 h-90vh overflow-y-scroll rounded_scrollbar'>
       <div className='flex items-center justify-between px-2'>
         <h3 className='text-2xl font-bold '>Notifications</h3>
         <Button variant='ghost' size='icon' className='text-xl rounded-full text-muted-foreground'>

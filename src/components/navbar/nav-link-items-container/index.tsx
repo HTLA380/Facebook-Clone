@@ -40,7 +40,7 @@ const NAV_LINK_OPTIONS: NavLinkOptionType[] = [
   },
 ];
 
-const NavLinkItemsContainer = () => {
+const NavLinkItemsContainer: React.FC = () => {
   const location = usePathname();
   const isDesktop = useMediaQuery({
     query: '(min-width: 1280px)',
