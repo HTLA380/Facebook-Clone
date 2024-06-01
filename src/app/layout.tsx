@@ -4,6 +4,7 @@ import './globals.css';
 import Navbar from '@/components/navbar/Navbar';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import ReactQueryProvider from '@/components/providers/ReactQueryProvider';
+import Sidebar from '@/components/sidebar/Sidebar';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
         <TooltipProvider>
           <body className={inter.className}>
             <Navbar />
+            <Sidebar />
             {children}
           </body>
         </TooltipProvider>
