@@ -16,10 +16,10 @@ import { menuPopoverData1, menuPopoverData2 } from '../../_data/menu-popover-dat
 
 const MenuPopover = () => {
   const renderPopoverContent = (
-    <PopoverContent className='w-full max-w-592px h-90vh mr-8 overflow-scroll rounded_scrollbar'>
-      <h3 className='text-2xl font-bold '>Menu</h3>
+    <PopoverContent className='p-0 w-full max-w-592px h-90vh mr-8 overflow-scroll rounded_scrollbar'>
+      <h3 className='text-2xl px-4 pt-4 pb-2 z-10 font-bold sticky top-0 left-0 bg-popover'>Menu</h3>
 
-      <div className='flex items-start gap-4 mt-3'>
+      <div className='p-4 flex items-start gap-4 mt-3'>
         <Card className='w-full px-2 py-3 shadow-md'>
           <div className='px-3'>
             <SearchField />
@@ -49,7 +49,7 @@ const MenuPopover = () => {
           })}
         </Card>
 
-        <Card className='p-3 w-80'>
+        <Card className='p-3 w-80 sticky top-14 right-0'>
           <h3 className='mb-3 text-xl font-bold'>Create</h3>
           {menuPopoverData2.map((item, idx) => {
             const isFourthItem = idx === 3;

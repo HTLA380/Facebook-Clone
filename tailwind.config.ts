@@ -23,6 +23,7 @@ const config = {
       maxWidth: {
         '200px': '12.5rem',
         '360px': '22.5rem',
+        '392px': '24.5rem',
         '450px': '28.125rem',
         '592px': '37rem',
         '680px': '42.5rem',
