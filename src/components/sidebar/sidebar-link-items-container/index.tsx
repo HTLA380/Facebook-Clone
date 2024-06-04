@@ -36,6 +36,7 @@ const SidebarLinkItemsContainer: React.FC<SidebarLinkItemsContainerProps> = ({ n
           imageUrl={element.iconUrl}
           imageAlt={element.title}
           route={element.route}
+          className=''
         />
       ))}
       <ExpendButton isActive={isExpended} onClick={() => setIsExpended((prev) => !prev)} />

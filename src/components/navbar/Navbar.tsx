@@ -17,7 +17,7 @@ const Navbar = async () => {
   }
 
   return (
-    <header className='fixed inset-x-0 z-20 w-full px-4 py-2 bg-primary-foreground'>
+    <header className='fixed inset-x-0 z-20 w-full px-4 py-2 shadow-sm bg-background'>
       <nav className='flex items-center justify-between gap-5'>
         <SearchBarContainer />
         <NavLinkItemsContainer />
